@@ -1,0 +1,36 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst cpu.onchip_memory -pg 1 -lvl 4 -y 30
+preplace inst cpu.clk_0 -pg 1 -lvl 1 -y 120
+preplace inst cpu.input_pio -pg 1 -lvl 4 -y 510
+preplace inst cpu -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst cpu.output_pio -pg 1 -lvl 4 -y 730
+preplace inst cpu.sys_sdram_pll_0.sys_pll -pg 1
+preplace inst cpu.sysid_qsys_0 -pg 1 -lvl 4 -y 230
+preplace inst cpu.difference_pio -pg 1 -lvl 4 -y 310
+preplace inst cpu.cpu_nios.cpu -pg 1
+preplace inst cpu.jtag -pg 1 -lvl 4 -y 130
+preplace inst cpu.cpu_nios.clock_bridge -pg 1
+preplace inst cpu.Altera_UP_Flash_Memory_IP_Core_Avalon_Interface_0 -pg 1 -lvl 4 -y 610
+preplace inst cpu.sdram -pg 1 -lvl 3 -y 260
+preplace inst cpu.image_pio -pg 1 -lvl 4 -y 410
+preplace inst cpu.sys_sdram_pll_0 -pg 1 -lvl 2 -y 120
+preplace inst cpu.cpu_nios.reset_bridge -pg 1
+preplace inst cpu.cpu_nios -pg 1 -lvl 3 -y 90
+preplace inst cpu.sys_sdram_pll_0.reset_from_locked -pg 1
+preplace netloc EXPORT<net_container>cpu</net_container>(SLAVE)cpu.output_pio,(SLAVE)output_pio.external_connection) 1 0 4 NJ 760 NJ 760 NJ 760 NJ
+preplace netloc EXPORT<net_container>cpu</net_container>(SLAVE)image_pio.external_connection,(SLAVE)cpu.image_pio) 1 0 4 NJ 440 NJ 440 NJ 440 NJ
+preplace netloc FAN_OUT<net_container>cpu</net_container>(MASTER)clk_0.clk,(SLAVE)input_pio.clk,(SLAVE)sys_sdram_pll_0.ref_clk,(SLAVE)difference_pio.clk,(SLAVE)output_pio.clk,(SLAVE)image_pio.clk,(SLAVE)Altera_UP_Flash_Memory_IP_Core_Avalon_Interface_0.clk) 1 1 3 330 350 NJ 370 1070
+preplace netloc EXPORT<net_container>cpu</net_container>(SLAVE)sdram.wire,(SLAVE)cpu.sdram_wire) 1 0 3 NJ 330 NJ 330 NJ
+preplace netloc EXPORT<net_container>cpu</net_container>(MASTER)cpu.sdram_clk,(MASTER)sys_sdram_pll_0.sdram_clk) 1 2 3 NJ 30 NJ 120 NJ
+preplace netloc FAN_OUT<net_container>cpu</net_container>(SLAVE)onchip_memory.clk1,(MASTER)sys_sdram_pll_0.sys_clk,(SLAVE)sdram.clk,(SLAVE)sysid_qsys_0.clk,(SLAVE)cpu_nios.clk,(SLAVE)jtag.clk) 1 2 2 650 230 1150
+preplace netloc INTERCONNECT<net_container>cpu</net_container>(SLAVE)sysid_qsys_0.reset,(MASTER)cpu_nios.debug_reset_request,(SLAVE)image_pio.reset,(SLAVE)cpu_nios.reset,(SLAVE)difference_pio.reset,(SLAVE)Altera_UP_Flash_Memory_IP_Core_Avalon_Interface_0.reset,(SLAVE)sdram.reset,(MASTER)clk_0.clk_reset,(SLAVE)jtag.reset,(SLAVE)sys_sdram_pll_0.ref_reset,(SLAVE)output_pio.reset,(SLAVE)onchip_memory.reset1,(SLAVE)input_pio.reset) 1 1 3 310 220 670 460 1090
+preplace netloc INTERCONNECT<net_container>cpu</net_container>(SLAVE)sysid_qsys_0.control_slave,(MASTER)cpu_nios.instruction_master,(SLAVE)Altera_UP_Flash_Memory_IP_Core_Avalon_Interface_0.flash_data,(SLAVE)cpu_nios.debug_mem_slave,(SLAVE)difference_pio.s1,(SLAVE)output_pio.s1,(SLAVE)Altera_UP_Flash_Memory_IP_Core_Avalon_Interface_0.flash_erase_control,(SLAVE)jtag.avalon_jtag_slave,(SLAVE)sdram.s1,(SLAVE)input_pio.s1,(SLAVE)image_pio.s1,(SLAVE)onchip_memory.s1,(MASTER)cpu_nios.data_master) 1 2 2 690 480 1110
+preplace netloc EXPORT<net_container>cpu</net_container>(SLAVE)cpu.clk,(SLAVE)clk_0.clk_in) 1 0 1 NJ
+preplace netloc POINT_TO_POINT<net_container>cpu</net_container>(MASTER)cpu_nios.irq,(SLAVE)jtag.irq) 1 3 1 N
+preplace netloc EXPORT<net_container>cpu</net_container>(SLAVE)cpu.reset,(SLAVE)clk_0.clk_in_reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>cpu</net_container>(SLAVE)difference_pio.external_connection,(SLAVE)cpu.difference_pio) 1 0 4 NJ 390 NJ 390 NJ 390 NJ
+preplace netloc EXPORT<net_container>cpu</net_container>(SLAVE)cpu.input_pio,(SLAVE)input_pio.external_connection) 1 0 4 NJ 540 NJ 540 NJ 540 NJ
+preplace netloc EXPORT<net_container>cpu</net_container>(SLAVE)cpu.flash,(SLAVE)Altera_UP_Flash_Memory_IP_Core_Avalon_Interface_0.conduit_end) 1 0 4 NJ 640 NJ 640 NJ 640 NJ
+levelinfo -pg 1 0 100 1520
+levelinfo -hier cpu 110 140 470 810 1190 1350

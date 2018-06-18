@@ -1,0 +1,1367 @@
+Analysis & Synthesis report for DE1_SoC
+Fri May 18 14:41:15 2018
+Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Registers Packed Into Inferred Megafunctions
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Source assignments for vgaImage:vga|altsyncram:Mux7_rtl_0|altsyncram_ok51:auto_generated
+ 14. Parameter Settings for User Entity Instance: Top-level Entity: |DE1_SoC
+ 15. Parameter Settings for User Entity Instance: vgaImage:vga|video_driver:vgaOut
+ 16. Parameter Settings for User Entity Instance: vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video
+ 17. Parameter Settings for Inferred Entity Instance: vgaImage:vga|altsyncram:Mux7_rtl_0
+ 18. altsyncram Parameter Settings by Entity Instance
+ 19. Port Connectivity Checks: "vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video"
+ 20. Port Connectivity Checks: "vgaImage:vga"
+ 21. Port Connectivity Checks: "clock_divider:cdiv"
+ 22. Post-Synthesis Netlist Statistics for Top Partition
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
+ 25. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Fri May 18 14:41:15 2018       ;
+; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
+; Revision Name                   ; DE1_SoC                                     ;
+; Top-level Entity Name           ; DE1_SoC                                     ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 129                                         ;
+; Total pins                      ; 34                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 512                                         ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; DE1_SoC            ; DE1_SoC            ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; State Machine Processing                                                        ; User-Encoded       ; Auto               ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; OpenCore Plus hardware evaluation                                               ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                               ;
++-------------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path    ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                        ; Library ;
++-------------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
+; DE1_SoC.sv                          ; yes             ; User SystemVerilog HDL File  ; C:/Users/lucas/Documents/GitHub/EE371Lab4/video/DE1_SoC.sv                          ;         ;
+; video_driver.sv                     ; yes             ; User SystemVerilog HDL File  ; C:/Users/lucas/Documents/GitHub/EE371Lab4/video/video_driver.sv                     ;         ;
+; vgaImage.sv                         ; yes             ; User SystemVerilog HDL File  ; C:/Users/lucas/Documents/GitHub/EE371Lab4/video/vgaImage.sv                         ;         ;
+; altera_up_avalon_video_vga_timing.v ; yes             ; User Verilog HDL File        ; C:/Users/lucas/Documents/GitHub/EE371Lab4/video/altera_up_avalon_video_vga_timing.v ;         ;
+; altsyncram.tdf                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/altsyncram.tdf               ;         ;
+; stratix_ram_block.inc               ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/stratix_ram_block.inc        ;         ;
+; lpm_mux.inc                         ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/lpm_mux.inc                  ;         ;
+; lpm_decode.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/lpm_decode.inc               ;         ;
+; aglobal170.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/aglobal170.inc               ;         ;
+; a_rdenreg.inc                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/a_rdenreg.inc                ;         ;
+; altrom.inc                          ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/altrom.inc                   ;         ;
+; altram.inc                          ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/altram.inc                   ;         ;
+; altdpram.inc                        ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.0/quartus/libraries/megafunctions/altdpram.inc                 ;         ;
+; db/altsyncram_ok51.tdf              ; yes             ; Auto-Generated Megafunction  ; C:/Users/lucas/Documents/GitHub/EE371Lab4/video/db/altsyncram_ok51.tdf              ;         ;
++-------------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                             ;
++---------------------------------------------+-------------------------------------------+
+; Resource                                    ; Usage                                     ;
++---------------------------------------------+-------------------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 96                                        ;
+;                                             ;                                           ;
+; Combinational ALUT usage for logic          ; 172                                       ;
+;     -- 7 input functions                    ; 0                                         ;
+;     -- 6 input functions                    ; 15                                        ;
+;     -- 5 input functions                    ; 31                                        ;
+;     -- 4 input functions                    ; 15                                        ;
+;     -- <=3 input functions                  ; 111                                       ;
+;                                             ;                                           ;
+; Dedicated logic registers                   ; 129                                       ;
+;                                             ;                                           ;
+; I/O pins                                    ; 34                                        ;
+; Total MLAB memory bits                      ; 0                                         ;
+; Total block memory bits                     ; 512                                       ;
+;                                             ;                                           ;
+; Total DSP Blocks                            ; 0                                         ;
+;                                             ;                                           ;
+; Maximum fan-out node                        ; vgaImage:vga|video_driver:vgaOut|CLOCK_25 ;
+; Maximum fan-out                             ; 111                                       ;
+; Total fan-out                               ; 1004                                      ;
+; Average fan-out                             ; 2.71                                      ;
++---------------------------------------------+-------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                ;
++----------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------+-----------------------------------+--------------+
+; Compilation Hierarchy Node                         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                               ; Entity Name                       ; Library Name ;
++----------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------+-----------------------------------+--------------+
+; |DE1_SoC                                           ; 172 (1)             ; 129 (1)                   ; 512               ; 0          ; 34   ; 0            ; |DE1_SoC                                                                          ; DE1_SoC                           ; work         ;
+;    |vgaImage:vga|                                  ; 171 (16)            ; 128 (19)                  ; 512               ; 0          ; 0    ; 0            ; |DE1_SoC|vgaImage:vga                                                             ; vgaImage                          ; work         ;
+;       |altsyncram:Mux7_rtl_0|                      ; 0 (0)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |DE1_SoC|vgaImage:vga|altsyncram:Mux7_rtl_0                                       ; altsyncram                        ; work         ;
+;          |altsyncram_ok51:auto_generated|          ; 0 (0)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |DE1_SoC|vgaImage:vga|altsyncram:Mux7_rtl_0|altsyncram_ok51:auto_generated        ; altsyncram_ok51                   ; work         ;
+;       |video_driver:vgaOut|                        ; 155 (90)            ; 109 (60)                  ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC|vgaImage:vga|video_driver:vgaOut                                         ; video_driver                      ; work         ;
+;          |altera_up_avalon_video_vga_timing:video| ; 65 (65)             ; 49 (49)                   ; 0                 ; 0          ; 0    ; 0            ; |DE1_SoC|vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video ; altera_up_avalon_video_vga_timing ; work         ;
++----------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------+-----------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                         ;
++------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+--------------------------+
+; Name                                                                         ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                      ;
++------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+--------------------------+
+; vgaImage:vga|altsyncram:Mux7_rtl_0|altsyncram_ok51:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 512          ; 1            ; --           ; --           ; 512  ; DE1_SoC.DE1_SoC0.rtl.mif ;
++------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+--------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                             ;
++-----------------------------------------------------------------------------------------+------------------------------------------------------+
+; Register name                                                                           ; Reason for Removal                                   ;
++-----------------------------------------------------------------------------------------+------------------------------------------------------+
+; vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video|vga_blue[0,1]  ; Stuck at GND due to stuck port data_in               ;
+; vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video|vga_green[0,1] ; Stuck at GND due to stuck port data_in               ;
+; vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video|vga_red[0,1]   ; Stuck at GND due to stuck port data_in               ;
+; vgaImage:vga|video_driver:vgaOut|bout[1..5]                                             ; Merged with vgaImage:vga|video_driver:vgaOut|bout[0] ;
+; vgaImage:vga|video_driver:vgaOut|gout[0..5]                                             ; Merged with vgaImage:vga|video_driver:vgaOut|bout[0] ;
+; vgaImage:vga|video_driver:vgaOut|rout[0..5]                                             ; Merged with vgaImage:vga|video_driver:vgaOut|bout[0] ;
+; vgaImage:vga|ps[1]                                                                      ; Lost fanout                                          ;
+; vgaImage:vga|video_driver:vgaOut|bout[0]                                                ; Lost fanout                                          ;
+; Total Number of Removed Registers = 25                                                  ;                                                      ;
++-----------------------------------------------------------------------------------------+------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 129   ;
+; Number of registers using Synchronous Clear  ; 69    ;
+; Number of registers using Synchronous Load   ; 3     ;
+; Number of registers using Asynchronous Clear ; 19    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 57    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                ;
++--------------------------------------------+-------------------------+------+
+; Register Name                              ; Megafunction            ; Type ;
++--------------------------------------------+-------------------------+------+
+; vgaImage:vga|video_driver:vgaOut|bout[0]~0 ; vgaImage:vga|Mux7_rtl_0 ; ROM  ;
++--------------------------------------------+-------------------------+------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |DE1_SoC|vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video|pixel_counter[7] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |DE1_SoC|vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video|pixel_counter[1] ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |DE1_SoC|vgaImage:vga|video_driver:vgaOut|xt[0]                                                    ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |DE1_SoC|vgaImage:vga|video_driver:vgaOut|yt[5]                                                    ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |DE1_SoC|vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video|line_counter[9]  ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |DE1_SoC|vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video|line_counter[10] ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |DE1_SoC|vgaImage:vga|video_driver:vgaOut|x[2]                                                     ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |DE1_SoC|vgaImage:vga|video_driver:vgaOut|xd[8]                                                    ;
+; 6:1                ; 9 bits    ; 36 LEs        ; 0 LEs                ; 36 LEs                 ; Yes        ; |DE1_SoC|vgaImage:vga|video_driver:vgaOut|y[3]                                                     ;
+; 6:1                ; 9 bits    ; 36 LEs        ; 0 LEs                ; 36 LEs                 ; Yes        ; |DE1_SoC|vgaImage:vga|video_driver:vgaOut|yd[5]                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------+
+; Source assignments for vgaImage:vga|altsyncram:Mux7_rtl_0|altsyncram_ok51:auto_generated ;
++---------------------------------+--------------------+------+----------------------------+
+; Assignment                      ; Value              ; From ; To                         ;
++---------------------------------+--------------------+------+----------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                          ;
++---------------------------------+--------------------+------+----------------------------+
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |DE1_SoC ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; whichClock     ; 25    ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vgaImage:vga|video_driver:vgaOut ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; WIDTH          ; 28    ; Signed Integer                                       ;
+; HEIGHT         ; 28    ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video ;
++-------------------------+------------+--------------------------------------------------------------------------------+
+; Parameter Name          ; Value      ; Type                                                                           ;
++-------------------------+------------+--------------------------------------------------------------------------------+
+; CW                      ; 9          ; Signed Integer                                                                 ;
+; H_ACTIVE                ; 640        ; Signed Integer                                                                 ;
+; H_FRONT_PORCH           ; 16         ; Signed Integer                                                                 ;
+; H_SYNC                  ; 96         ; Signed Integer                                                                 ;
+; H_BACK_PORCH            ; 48         ; Signed Integer                                                                 ;
+; H_TOTAL                 ; 800        ; Signed Integer                                                                 ;
+; V_ACTIVE                ; 480        ; Signed Integer                                                                 ;
+; V_FRONT_PORCH           ; 10         ; Signed Integer                                                                 ;
+; V_SYNC                  ; 2          ; Signed Integer                                                                 ;
+; V_BACK_PORCH            ; 33         ; Signed Integer                                                                 ;
+; V_TOTAL                 ; 525        ; Signed Integer                                                                 ;
+; PW                      ; 10         ; Signed Integer                                                                 ;
+; PIXEL_COUNTER_INCREMENT ; 0000000001 ; Unsigned Binary                                                                ;
+; LW                      ; 10         ; Signed Integer                                                                 ;
+; LINE_COUNTER_INCREMENT  ; 0000000001 ; Unsigned Binary                                                                ;
++-------------------------+------------+--------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: vgaImage:vga|altsyncram:Mux7_rtl_0 ;
++------------------------------------+--------------------------+---------------------+
+; Parameter Name                     ; Value                    ; Type                ;
++------------------------------------+--------------------------+---------------------+
+; BYTE_SIZE_BLOCK                    ; 8                        ; Untyped             ;
+; AUTO_CARRY_CHAINS                  ; ON                       ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS               ; OFF                      ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                ; ON                       ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                      ; IGNORE_CASCADE      ;
+; WIDTH_BYTEENA                      ; 1                        ; Untyped             ;
+; OPERATION_MODE                     ; ROM                      ; Untyped             ;
+; WIDTH_A                            ; 1                        ; Untyped             ;
+; WIDTHAD_A                          ; 9                        ; Untyped             ;
+; NUMWORDS_A                         ; 512                      ; Untyped             ;
+; OUTDATA_REG_A                      ; UNREGISTERED             ; Untyped             ;
+; ADDRESS_ACLR_A                     ; NONE                     ; Untyped             ;
+; OUTDATA_ACLR_A                     ; NONE                     ; Untyped             ;
+; WRCONTROL_ACLR_A                   ; NONE                     ; Untyped             ;
+; INDATA_ACLR_A                      ; NONE                     ; Untyped             ;
+; BYTEENA_ACLR_A                     ; NONE                     ; Untyped             ;
+; WIDTH_B                            ; 1                        ; Untyped             ;
+; WIDTHAD_B                          ; 1                        ; Untyped             ;
+; NUMWORDS_B                         ; 1                        ; Untyped             ;
+; INDATA_REG_B                       ; CLOCK1                   ; Untyped             ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                   ; Untyped             ;
+; RDCONTROL_REG_B                    ; CLOCK1                   ; Untyped             ;
+; ADDRESS_REG_B                      ; CLOCK1                   ; Untyped             ;
+; OUTDATA_REG_B                      ; UNREGISTERED             ; Untyped             ;
+; BYTEENA_REG_B                      ; CLOCK1                   ; Untyped             ;
+; INDATA_ACLR_B                      ; NONE                     ; Untyped             ;
+; WRCONTROL_ACLR_B                   ; NONE                     ; Untyped             ;
+; ADDRESS_ACLR_B                     ; NONE                     ; Untyped             ;
+; OUTDATA_ACLR_B                     ; NONE                     ; Untyped             ;
+; RDCONTROL_ACLR_B                   ; NONE                     ; Untyped             ;
+; BYTEENA_ACLR_B                     ; NONE                     ; Untyped             ;
+; WIDTH_BYTEENA_A                    ; 1                        ; Untyped             ;
+; WIDTH_BYTEENA_B                    ; 1                        ; Untyped             ;
+; RAM_BLOCK_TYPE                     ; AUTO                     ; Untyped             ;
+; BYTE_SIZE                          ; 8                        ; Untyped             ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                ; Untyped             ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ     ; Untyped             ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ     ; Untyped             ;
+; INIT_FILE                          ; DE1_SoC.DE1_SoC0.rtl.mif ; Untyped             ;
+; INIT_FILE_LAYOUT                   ; PORT_A                   ; Untyped             ;
+; MAXIMUM_DEPTH                      ; 0                        ; Untyped             ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                   ; Untyped             ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                   ; Untyped             ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                   ; Untyped             ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                   ; Untyped             ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN          ; Untyped             ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN          ; Untyped             ;
+; ENABLE_ECC                         ; FALSE                    ; Untyped             ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                    ; Untyped             ;
+; WIDTH_ECCSTATUS                    ; 3                        ; Untyped             ;
+; DEVICE_FAMILY                      ; Cyclone V                ; Untyped             ;
+; CBXI_PARAMETER                     ; altsyncram_ok51          ; Untyped             ;
++------------------------------------+--------------------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                               ;
++-------------------------------------------+------------------------------------+
+; Name                                      ; Value                              ;
++-------------------------------------------+------------------------------------+
+; Number of entity instances                ; 1                                  ;
+; Entity Instance                           ; vgaImage:vga|altsyncram:Mux7_rtl_0 ;
+;     -- OPERATION_MODE                     ; ROM                                ;
+;     -- WIDTH_A                            ; 1                                  ;
+;     -- NUMWORDS_A                         ; 512                                ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                       ;
+;     -- WIDTH_B                            ; 1                                  ;
+;     -- NUMWORDS_B                         ; 1                                  ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                             ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                       ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                               ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                          ;
++-------------------------------------------+------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video"                                                                           ;
++----------------------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+; Port                       ; Type   ; Severity ; Details                                                                                                                       ;
++----------------------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+; red_to_vga_display[1..0]   ; Input  ; Info     ; Stuck at GND                                                                                                                  ;
+; green_to_vga_display[1..0] ; Input  ; Info     ; Stuck at GND                                                                                                                  ;
+; blue_to_vga_display[1..0]  ; Input  ; Info     ; Stuck at GND                                                                                                                  ;
+; color_select               ; Input  ; Info     ; Stuck at VCC                                                                                                                  ;
+; end_of_frame               ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                           ;
+; vga_c_sync                 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                           ;
+; vga_data_enable            ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                           ;
+; vga_red                    ; Output ; Warning  ; Output or bidir port (10 bits) is wider than the port expression (8 bits) it drives; bit(s) "vga_red[9..8]" have no fanouts   ;
+; vga_green                  ; Output ; Warning  ; Output or bidir port (10 bits) is wider than the port expression (8 bits) it drives; bit(s) "vga_green[9..8]" have no fanouts ;
+; vga_blue                   ; Output ; Warning  ; Output or bidir port (10 bits) is wider than the port expression (8 bits) it drives; bit(s) "vga_blue[9..8]" have no fanouts  ;
+; vga_color_data             ; Output ; Info     ; Explicitly unconnected                                                                                                        ;
++----------------------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "vgaImage:vga"          ;
++-----------------+-------+----------+--------------+
+; Port            ; Type  ; Severity ; Details      ;
++-----------------+-------+----------+--------------+
+; image[728..727] ; Input ; Info     ; Stuck at VCC ;
+; image[672..671] ; Input ; Info     ; Stuck at VCC ;
+; image[616..615] ; Input ; Info     ; Stuck at VCC ;
+; image[560..559] ; Input ; Info     ; Stuck at VCC ;
+; image[504..503] ; Input ; Info     ; Stuck at VCC ;
+; image[448..447] ; Input ; Info     ; Stuck at VCC ;
+; image[392..391] ; Input ; Info     ; Stuck at VCC ;
+; image[336..335] ; Input ; Info     ; Stuck at VCC ;
+; image[280..279] ; Input ; Info     ; Stuck at VCC ;
+; image[224..223] ; Input ; Info     ; Stuck at VCC ;
+; image[168..167] ; Input ; Info     ; Stuck at VCC ;
+; image[112..111] ; Input ; Info     ; Stuck at VCC ;
+; image[56..55]   ; Input ; Info     ; Stuck at VCC ;
+; image[756..755] ; Input ; Info     ; Stuck at GND ;
+; image[700..699] ; Input ; Info     ; Stuck at GND ;
+; image[644..643] ; Input ; Info     ; Stuck at GND ;
+; image[588..587] ; Input ; Info     ; Stuck at GND ;
+; image[532..531] ; Input ; Info     ; Stuck at GND ;
+; image[476..475] ; Input ; Info     ; Stuck at GND ;
+; image[420..419] ; Input ; Info     ; Stuck at GND ;
+; image[364..363] ; Input ; Info     ; Stuck at GND ;
+; image[308..307] ; Input ; Info     ; Stuck at GND ;
+; image[252..251] ; Input ; Info     ; Stuck at GND ;
+; image[196..195] ; Input ; Info     ; Stuck at GND ;
+; image[140..139] ; Input ; Info     ; Stuck at GND ;
+; image[84..83]   ; Input ; Info     ; Stuck at GND ;
+; image[28..27]   ; Input ; Info     ; Stuck at GND ;
+; image[783]      ; Input ; Info     ; Stuck at VCC ;
+; image[782]      ; Input ; Info     ; Stuck at GND ;
+; image[781]      ; Input ; Info     ; Stuck at VCC ;
+; image[780]      ; Input ; Info     ; Stuck at GND ;
+; image[779]      ; Input ; Info     ; Stuck at VCC ;
+; image[778]      ; Input ; Info     ; Stuck at GND ;
+; image[777]      ; Input ; Info     ; Stuck at VCC ;
+; image[776]      ; Input ; Info     ; Stuck at GND ;
+; image[775]      ; Input ; Info     ; Stuck at VCC ;
+; image[774]      ; Input ; Info     ; Stuck at GND ;
+; image[773]      ; Input ; Info     ; Stuck at VCC ;
+; image[772]      ; Input ; Info     ; Stuck at GND ;
+; image[771]      ; Input ; Info     ; Stuck at VCC ;
+; image[770]      ; Input ; Info     ; Stuck at GND ;
+; image[769]      ; Input ; Info     ; Stuck at VCC ;
+; image[768]      ; Input ; Info     ; Stuck at GND ;
+; image[767]      ; Input ; Info     ; Stuck at VCC ;
+; image[766]      ; Input ; Info     ; Stuck at GND ;
+; image[765]      ; Input ; Info     ; Stuck at VCC ;
+; image[764]      ; Input ; Info     ; Stuck at GND ;
+; image[763]      ; Input ; Info     ; Stuck at VCC ;
+; image[762]      ; Input ; Info     ; Stuck at GND ;
+; image[761]      ; Input ; Info     ; Stuck at VCC ;
+; image[760]      ; Input ; Info     ; Stuck at GND ;
+; image[759]      ; Input ; Info     ; Stuck at VCC ;
+; image[758]      ; Input ; Info     ; Stuck at GND ;
+; image[757]      ; Input ; Info     ; Stuck at VCC ;
+; image[754]      ; Input ; Info     ; Stuck at VCC ;
+; image[753]      ; Input ; Info     ; Stuck at GND ;
+; image[752]      ; Input ; Info     ; Stuck at VCC ;
+; image[751]      ; Input ; Info     ; Stuck at GND ;
+; image[750]      ; Input ; Info     ; Stuck at VCC ;
+; image[749]      ; Input ; Info     ; Stuck at GND ;
+; image[748]      ; Input ; Info     ; Stuck at VCC ;
+; image[747]      ; Input ; Info     ; Stuck at GND ;
+; image[746]      ; Input ; Info     ; Stuck at VCC ;
+; image[745]      ; Input ; Info     ; Stuck at GND ;
+; image[744]      ; Input ; Info     ; Stuck at VCC ;
+; image[743]      ; Input ; Info     ; Stuck at GND ;
+; image[742]      ; Input ; Info     ; Stuck at VCC ;
+; image[741]      ; Input ; Info     ; Stuck at GND ;
+; image[740]      ; Input ; Info     ; Stuck at VCC ;
+; image[739]      ; Input ; Info     ; Stuck at GND ;
+; image[738]      ; Input ; Info     ; Stuck at VCC ;
+; image[737]      ; Input ; Info     ; Stuck at GND ;
+; image[736]      ; Input ; Info     ; Stuck at VCC ;
+; image[735]      ; Input ; Info     ; Stuck at GND ;
+; image[734]      ; Input ; Info     ; Stuck at VCC ;
+; image[733]      ; Input ; Info     ; Stuck at GND ;
+; image[732]      ; Input ; Info     ; Stuck at VCC ;
+; image[731]      ; Input ; Info     ; Stuck at GND ;
+; image[730]      ; Input ; Info     ; Stuck at VCC ;
+; image[729]      ; Input ; Info     ; Stuck at GND ;
+; image[726]      ; Input ; Info     ; Stuck at GND ;
+; image[725]      ; Input ; Info     ; Stuck at VCC ;
+; image[724]      ; Input ; Info     ; Stuck at GND ;
+; image[723]      ; Input ; Info     ; Stuck at VCC ;
+; image[722]      ; Input ; Info     ; Stuck at GND ;
+; image[721]      ; Input ; Info     ; Stuck at VCC ;
+; image[720]      ; Input ; Info     ; Stuck at GND ;
+; image[719]      ; Input ; Info     ; Stuck at VCC ;
+; image[718]      ; Input ; Info     ; Stuck at GND ;
+; image[717]      ; Input ; Info     ; Stuck at VCC ;
+; image[716]      ; Input ; Info     ; Stuck at GND ;
+; image[715]      ; Input ; Info     ; Stuck at VCC ;
+; image[714]      ; Input ; Info     ; Stuck at GND ;
+; image[713]      ; Input ; Info     ; Stuck at VCC ;
+; image[712]      ; Input ; Info     ; Stuck at GND ;
+; image[711]      ; Input ; Info     ; Stuck at VCC ;
+; image[710]      ; Input ; Info     ; Stuck at GND ;
+; image[709]      ; Input ; Info     ; Stuck at VCC ;
+; image[708]      ; Input ; Info     ; Stuck at GND ;
+; image[707]      ; Input ; Info     ; Stuck at VCC ;
+; image[706]      ; Input ; Info     ; Stuck at GND ;
+; image[705]      ; Input ; Info     ; Stuck at VCC ;
+; image[704]      ; Input ; Info     ; Stuck at GND ;
+; image[703]      ; Input ; Info     ; Stuck at VCC ;
+; image[702]      ; Input ; Info     ; Stuck at GND ;
+; image[701]      ; Input ; Info     ; Stuck at VCC ;
+; image[698]      ; Input ; Info     ; Stuck at VCC ;
+; image[697]      ; Input ; Info     ; Stuck at GND ;
+; image[696]      ; Input ; Info     ; Stuck at VCC ;
+; image[695]      ; Input ; Info     ; Stuck at GND ;
+; image[694]      ; Input ; Info     ; Stuck at VCC ;
+; image[693]      ; Input ; Info     ; Stuck at GND ;
+; image[692]      ; Input ; Info     ; Stuck at VCC ;
+; image[691]      ; Input ; Info     ; Stuck at GND ;
+; image[690]      ; Input ; Info     ; Stuck at VCC ;
+; image[689]      ; Input ; Info     ; Stuck at GND ;
+; image[688]      ; Input ; Info     ; Stuck at VCC ;
+; image[687]      ; Input ; Info     ; Stuck at GND ;
+; image[686]      ; Input ; Info     ; Stuck at VCC ;
+; image[685]      ; Input ; Info     ; Stuck at GND ;
+; image[684]      ; Input ; Info     ; Stuck at VCC ;
+; image[683]      ; Input ; Info     ; Stuck at GND ;
+; image[682]      ; Input ; Info     ; Stuck at VCC ;
+; image[681]      ; Input ; Info     ; Stuck at GND ;
+; image[680]      ; Input ; Info     ; Stuck at VCC ;
+; image[679]      ; Input ; Info     ; Stuck at GND ;
+; image[678]      ; Input ; Info     ; Stuck at VCC ;
+; image[677]      ; Input ; Info     ; Stuck at GND ;
+; image[676]      ; Input ; Info     ; Stuck at VCC ;
+; image[675]      ; Input ; Info     ; Stuck at GND ;
+; image[674]      ; Input ; Info     ; Stuck at VCC ;
+; image[673]      ; Input ; Info     ; Stuck at GND ;
+; image[670]      ; Input ; Info     ; Stuck at GND ;
+; image[669]      ; Input ; Info     ; Stuck at VCC ;
+; image[668]      ; Input ; Info     ; Stuck at GND ;
+; image[667]      ; Input ; Info     ; Stuck at VCC ;
+; image[666]      ; Input ; Info     ; Stuck at GND ;
+; image[665]      ; Input ; Info     ; Stuck at VCC ;
+; image[664]      ; Input ; Info     ; Stuck at GND ;
+; image[663]      ; Input ; Info     ; Stuck at VCC ;
+; image[662]      ; Input ; Info     ; Stuck at GND ;
+; image[661]      ; Input ; Info     ; Stuck at VCC ;
+; image[660]      ; Input ; Info     ; Stuck at GND ;
+; image[659]      ; Input ; Info     ; Stuck at VCC ;
+; image[658]      ; Input ; Info     ; Stuck at GND ;
+; image[657]      ; Input ; Info     ; Stuck at VCC ;
+; image[656]      ; Input ; Info     ; Stuck at GND ;
+; image[655]      ; Input ; Info     ; Stuck at VCC ;
+; image[654]      ; Input ; Info     ; Stuck at GND ;
+; image[653]      ; Input ; Info     ; Stuck at VCC ;
+; image[652]      ; Input ; Info     ; Stuck at GND ;
+; image[651]      ; Input ; Info     ; Stuck at VCC ;
+; image[650]      ; Input ; Info     ; Stuck at GND ;
+; image[649]      ; Input ; Info     ; Stuck at VCC ;
+; image[648]      ; Input ; Info     ; Stuck at GND ;
+; image[647]      ; Input ; Info     ; Stuck at VCC ;
+; image[646]      ; Input ; Info     ; Stuck at GND ;
+; image[645]      ; Input ; Info     ; Stuck at VCC ;
+; image[642]      ; Input ; Info     ; Stuck at VCC ;
+; image[641]      ; Input ; Info     ; Stuck at GND ;
+; image[640]      ; Input ; Info     ; Stuck at VCC ;
+; image[639]      ; Input ; Info     ; Stuck at GND ;
+; image[638]      ; Input ; Info     ; Stuck at VCC ;
+; image[637]      ; Input ; Info     ; Stuck at GND ;
+; image[636]      ; Input ; Info     ; Stuck at VCC ;
+; image[635]      ; Input ; Info     ; Stuck at GND ;
+; image[634]      ; Input ; Info     ; Stuck at VCC ;
+; image[633]      ; Input ; Info     ; Stuck at GND ;
+; image[632]      ; Input ; Info     ; Stuck at VCC ;
+; image[631]      ; Input ; Info     ; Stuck at GND ;
+; image[630]      ; Input ; Info     ; Stuck at VCC ;
+; image[629]      ; Input ; Info     ; Stuck at GND ;
+; image[628]      ; Input ; Info     ; Stuck at VCC ;
+; image[627]      ; Input ; Info     ; Stuck at GND ;
+; image[626]      ; Input ; Info     ; Stuck at VCC ;
+; image[625]      ; Input ; Info     ; Stuck at GND ;
+; image[624]      ; Input ; Info     ; Stuck at VCC ;
+; image[623]      ; Input ; Info     ; Stuck at GND ;
+; image[622]      ; Input ; Info     ; Stuck at VCC ;
+; image[621]      ; Input ; Info     ; Stuck at GND ;
+; image[620]      ; Input ; Info     ; Stuck at VCC ;
+; image[619]      ; Input ; Info     ; Stuck at GND ;
+; image[618]      ; Input ; Info     ; Stuck at VCC ;
+; image[617]      ; Input ; Info     ; Stuck at GND ;
+; image[614]      ; Input ; Info     ; Stuck at GND ;
+; image[613]      ; Input ; Info     ; Stuck at VCC ;
+; image[612]      ; Input ; Info     ; Stuck at GND ;
+; image[611]      ; Input ; Info     ; Stuck at VCC ;
+; image[610]      ; Input ; Info     ; Stuck at GND ;
+; image[609]      ; Input ; Info     ; Stuck at VCC ;
+; image[608]      ; Input ; Info     ; Stuck at GND ;
+; image[607]      ; Input ; Info     ; Stuck at VCC ;
+; image[606]      ; Input ; Info     ; Stuck at GND ;
+; image[605]      ; Input ; Info     ; Stuck at VCC ;
+; image[604]      ; Input ; Info     ; Stuck at GND ;
+; image[603]      ; Input ; Info     ; Stuck at VCC ;
+; image[602]      ; Input ; Info     ; Stuck at GND ;
+; image[601]      ; Input ; Info     ; Stuck at VCC ;
+; image[600]      ; Input ; Info     ; Stuck at GND ;
+; image[599]      ; Input ; Info     ; Stuck at VCC ;
+; image[598]      ; Input ; Info     ; Stuck at GND ;
+; image[597]      ; Input ; Info     ; Stuck at VCC ;
+; image[596]      ; Input ; Info     ; Stuck at GND ;
+; image[595]      ; Input ; Info     ; Stuck at VCC ;
+; image[594]      ; Input ; Info     ; Stuck at GND ;
+; image[593]      ; Input ; Info     ; Stuck at VCC ;
+; image[592]      ; Input ; Info     ; Stuck at GND ;
+; image[591]      ; Input ; Info     ; Stuck at VCC ;
+; image[590]      ; Input ; Info     ; Stuck at GND ;
+; image[589]      ; Input ; Info     ; Stuck at VCC ;
+; image[586]      ; Input ; Info     ; Stuck at VCC ;
+; image[585]      ; Input ; Info     ; Stuck at GND ;
+; image[584]      ; Input ; Info     ; Stuck at VCC ;
+; image[583]      ; Input ; Info     ; Stuck at GND ;
+; image[582]      ; Input ; Info     ; Stuck at VCC ;
+; image[581]      ; Input ; Info     ; Stuck at GND ;
+; image[580]      ; Input ; Info     ; Stuck at VCC ;
+; image[579]      ; Input ; Info     ; Stuck at GND ;
+; image[578]      ; Input ; Info     ; Stuck at VCC ;
+; image[577]      ; Input ; Info     ; Stuck at GND ;
+; image[576]      ; Input ; Info     ; Stuck at VCC ;
+; image[575]      ; Input ; Info     ; Stuck at GND ;
+; image[574]      ; Input ; Info     ; Stuck at VCC ;
+; image[573]      ; Input ; Info     ; Stuck at GND ;
+; image[572]      ; Input ; Info     ; Stuck at VCC ;
+; image[571]      ; Input ; Info     ; Stuck at GND ;
+; image[570]      ; Input ; Info     ; Stuck at VCC ;
+; image[569]      ; Input ; Info     ; Stuck at GND ;
+; image[568]      ; Input ; Info     ; Stuck at VCC ;
+; image[567]      ; Input ; Info     ; Stuck at GND ;
+; image[566]      ; Input ; Info     ; Stuck at VCC ;
+; image[565]      ; Input ; Info     ; Stuck at GND ;
+; image[564]      ; Input ; Info     ; Stuck at VCC ;
+; image[563]      ; Input ; Info     ; Stuck at GND ;
+; image[562]      ; Input ; Info     ; Stuck at VCC ;
+; image[561]      ; Input ; Info     ; Stuck at GND ;
+; image[558]      ; Input ; Info     ; Stuck at GND ;
+; image[557]      ; Input ; Info     ; Stuck at VCC ;
+; image[556]      ; Input ; Info     ; Stuck at GND ;
+; image[555]      ; Input ; Info     ; Stuck at VCC ;
+; image[554]      ; Input ; Info     ; Stuck at GND ;
+; image[553]      ; Input ; Info     ; Stuck at VCC ;
+; image[552]      ; Input ; Info     ; Stuck at GND ;
+; image[551]      ; Input ; Info     ; Stuck at VCC ;
+; image[550]      ; Input ; Info     ; Stuck at GND ;
+; image[549]      ; Input ; Info     ; Stuck at VCC ;
+; image[548]      ; Input ; Info     ; Stuck at GND ;
+; image[547]      ; Input ; Info     ; Stuck at VCC ;
+; image[546]      ; Input ; Info     ; Stuck at GND ;
+; image[545]      ; Input ; Info     ; Stuck at VCC ;
+; image[544]      ; Input ; Info     ; Stuck at GND ;
+; image[543]      ; Input ; Info     ; Stuck at VCC ;
+; image[542]      ; Input ; Info     ; Stuck at GND ;
+; image[541]      ; Input ; Info     ; Stuck at VCC ;
+; image[540]      ; Input ; Info     ; Stuck at GND ;
+; image[539]      ; Input ; Info     ; Stuck at VCC ;
+; image[538]      ; Input ; Info     ; Stuck at GND ;
+; image[537]      ; Input ; Info     ; Stuck at VCC ;
+; image[536]      ; Input ; Info     ; Stuck at GND ;
+; image[535]      ; Input ; Info     ; Stuck at VCC ;
+; image[534]      ; Input ; Info     ; Stuck at GND ;
+; image[533]      ; Input ; Info     ; Stuck at VCC ;
+; image[530]      ; Input ; Info     ; Stuck at VCC ;
+; image[529]      ; Input ; Info     ; Stuck at GND ;
+; image[528]      ; Input ; Info     ; Stuck at VCC ;
+; image[527]      ; Input ; Info     ; Stuck at GND ;
+; image[526]      ; Input ; Info     ; Stuck at VCC ;
+; image[525]      ; Input ; Info     ; Stuck at GND ;
+; image[524]      ; Input ; Info     ; Stuck at VCC ;
+; image[523]      ; Input ; Info     ; Stuck at GND ;
+; image[522]      ; Input ; Info     ; Stuck at VCC ;
+; image[521]      ; Input ; Info     ; Stuck at GND ;
+; image[520]      ; Input ; Info     ; Stuck at VCC ;
+; image[519]      ; Input ; Info     ; Stuck at GND ;
+; image[518]      ; Input ; Info     ; Stuck at VCC ;
+; image[517]      ; Input ; Info     ; Stuck at GND ;
+; image[516]      ; Input ; Info     ; Stuck at VCC ;
+; image[515]      ; Input ; Info     ; Stuck at GND ;
+; image[514]      ; Input ; Info     ; Stuck at VCC ;
+; image[513]      ; Input ; Info     ; Stuck at GND ;
+; image[512]      ; Input ; Info     ; Stuck at VCC ;
+; image[511]      ; Input ; Info     ; Stuck at GND ;
+; image[510]      ; Input ; Info     ; Stuck at VCC ;
+; image[509]      ; Input ; Info     ; Stuck at GND ;
+; image[508]      ; Input ; Info     ; Stuck at VCC ;
+; image[507]      ; Input ; Info     ; Stuck at GND ;
+; image[506]      ; Input ; Info     ; Stuck at VCC ;
+; image[505]      ; Input ; Info     ; Stuck at GND ;
+; image[502]      ; Input ; Info     ; Stuck at GND ;
+; image[501]      ; Input ; Info     ; Stuck at VCC ;
+; image[500]      ; Input ; Info     ; Stuck at GND ;
+; image[499]      ; Input ; Info     ; Stuck at VCC ;
+; image[498]      ; Input ; Info     ; Stuck at GND ;
+; image[497]      ; Input ; Info     ; Stuck at VCC ;
+; image[496]      ; Input ; Info     ; Stuck at GND ;
+; image[495]      ; Input ; Info     ; Stuck at VCC ;
+; image[494]      ; Input ; Info     ; Stuck at GND ;
+; image[493]      ; Input ; Info     ; Stuck at VCC ;
+; image[492]      ; Input ; Info     ; Stuck at GND ;
+; image[491]      ; Input ; Info     ; Stuck at VCC ;
+; image[490]      ; Input ; Info     ; Stuck at GND ;
+; image[489]      ; Input ; Info     ; Stuck at VCC ;
+; image[488]      ; Input ; Info     ; Stuck at GND ;
+; image[487]      ; Input ; Info     ; Stuck at VCC ;
+; image[486]      ; Input ; Info     ; Stuck at GND ;
+; image[485]      ; Input ; Info     ; Stuck at VCC ;
+; image[484]      ; Input ; Info     ; Stuck at GND ;
+; image[483]      ; Input ; Info     ; Stuck at VCC ;
+; image[482]      ; Input ; Info     ; Stuck at GND ;
+; image[481]      ; Input ; Info     ; Stuck at VCC ;
+; image[480]      ; Input ; Info     ; Stuck at GND ;
+; image[479]      ; Input ; Info     ; Stuck at VCC ;
+; image[478]      ; Input ; Info     ; Stuck at GND ;
+; image[477]      ; Input ; Info     ; Stuck at VCC ;
+; image[474]      ; Input ; Info     ; Stuck at VCC ;
+; image[473]      ; Input ; Info     ; Stuck at GND ;
+; image[472]      ; Input ; Info     ; Stuck at VCC ;
+; image[471]      ; Input ; Info     ; Stuck at GND ;
+; image[470]      ; Input ; Info     ; Stuck at VCC ;
+; image[469]      ; Input ; Info     ; Stuck at GND ;
+; image[468]      ; Input ; Info     ; Stuck at VCC ;
+; image[467]      ; Input ; Info     ; Stuck at GND ;
+; image[466]      ; Input ; Info     ; Stuck at VCC ;
+; image[465]      ; Input ; Info     ; Stuck at GND ;
+; image[464]      ; Input ; Info     ; Stuck at VCC ;
+; image[463]      ; Input ; Info     ; Stuck at GND ;
+; image[462]      ; Input ; Info     ; Stuck at VCC ;
+; image[461]      ; Input ; Info     ; Stuck at GND ;
+; image[460]      ; Input ; Info     ; Stuck at VCC ;
+; image[459]      ; Input ; Info     ; Stuck at GND ;
+; image[458]      ; Input ; Info     ; Stuck at VCC ;
+; image[457]      ; Input ; Info     ; Stuck at GND ;
+; image[456]      ; Input ; Info     ; Stuck at VCC ;
+; image[455]      ; Input ; Info     ; Stuck at GND ;
+; image[454]      ; Input ; Info     ; Stuck at VCC ;
+; image[453]      ; Input ; Info     ; Stuck at GND ;
+; image[452]      ; Input ; Info     ; Stuck at VCC ;
+; image[451]      ; Input ; Info     ; Stuck at GND ;
+; image[450]      ; Input ; Info     ; Stuck at VCC ;
+; image[449]      ; Input ; Info     ; Stuck at GND ;
+; image[446]      ; Input ; Info     ; Stuck at GND ;
+; image[445]      ; Input ; Info     ; Stuck at VCC ;
+; image[444]      ; Input ; Info     ; Stuck at GND ;
+; image[443]      ; Input ; Info     ; Stuck at VCC ;
+; image[442]      ; Input ; Info     ; Stuck at GND ;
+; image[441]      ; Input ; Info     ; Stuck at VCC ;
+; image[440]      ; Input ; Info     ; Stuck at GND ;
+; image[439]      ; Input ; Info     ; Stuck at VCC ;
+; image[438]      ; Input ; Info     ; Stuck at GND ;
+; image[437]      ; Input ; Info     ; Stuck at VCC ;
+; image[436]      ; Input ; Info     ; Stuck at GND ;
+; image[435]      ; Input ; Info     ; Stuck at VCC ;
+; image[434]      ; Input ; Info     ; Stuck at GND ;
+; image[433]      ; Input ; Info     ; Stuck at VCC ;
+; image[432]      ; Input ; Info     ; Stuck at GND ;
+; image[431]      ; Input ; Info     ; Stuck at VCC ;
+; image[430]      ; Input ; Info     ; Stuck at GND ;
+; image[429]      ; Input ; Info     ; Stuck at VCC ;
+; image[428]      ; Input ; Info     ; Stuck at GND ;
+; image[427]      ; Input ; Info     ; Stuck at VCC ;
+; image[426]      ; Input ; Info     ; Stuck at GND ;
+; image[425]      ; Input ; Info     ; Stuck at VCC ;
+; image[424]      ; Input ; Info     ; Stuck at GND ;
+; image[423]      ; Input ; Info     ; Stuck at VCC ;
+; image[422]      ; Input ; Info     ; Stuck at GND ;
+; image[421]      ; Input ; Info     ; Stuck at VCC ;
+; image[418]      ; Input ; Info     ; Stuck at VCC ;
+; image[417]      ; Input ; Info     ; Stuck at GND ;
+; image[416]      ; Input ; Info     ; Stuck at VCC ;
+; image[415]      ; Input ; Info     ; Stuck at GND ;
+; image[414]      ; Input ; Info     ; Stuck at VCC ;
+; image[413]      ; Input ; Info     ; Stuck at GND ;
+; image[412]      ; Input ; Info     ; Stuck at VCC ;
+; image[411]      ; Input ; Info     ; Stuck at GND ;
+; image[410]      ; Input ; Info     ; Stuck at VCC ;
+; image[409]      ; Input ; Info     ; Stuck at GND ;
+; image[408]      ; Input ; Info     ; Stuck at VCC ;
+; image[407]      ; Input ; Info     ; Stuck at GND ;
+; image[406]      ; Input ; Info     ; Stuck at VCC ;
+; image[405]      ; Input ; Info     ; Stuck at GND ;
+; image[404]      ; Input ; Info     ; Stuck at VCC ;
+; image[403]      ; Input ; Info     ; Stuck at GND ;
+; image[402]      ; Input ; Info     ; Stuck at VCC ;
+; image[401]      ; Input ; Info     ; Stuck at GND ;
+; image[400]      ; Input ; Info     ; Stuck at VCC ;
+; image[399]      ; Input ; Info     ; Stuck at GND ;
+; image[398]      ; Input ; Info     ; Stuck at VCC ;
+; image[397]      ; Input ; Info     ; Stuck at GND ;
+; image[396]      ; Input ; Info     ; Stuck at VCC ;
+; image[395]      ; Input ; Info     ; Stuck at GND ;
+; image[394]      ; Input ; Info     ; Stuck at VCC ;
+; image[393]      ; Input ; Info     ; Stuck at GND ;
+; image[390]      ; Input ; Info     ; Stuck at GND ;
+; image[389]      ; Input ; Info     ; Stuck at VCC ;
+; image[388]      ; Input ; Info     ; Stuck at GND ;
+; image[387]      ; Input ; Info     ; Stuck at VCC ;
+; image[386]      ; Input ; Info     ; Stuck at GND ;
+; image[385]      ; Input ; Info     ; Stuck at VCC ;
+; image[384]      ; Input ; Info     ; Stuck at GND ;
+; image[383]      ; Input ; Info     ; Stuck at VCC ;
+; image[382]      ; Input ; Info     ; Stuck at GND ;
+; image[381]      ; Input ; Info     ; Stuck at VCC ;
+; image[380]      ; Input ; Info     ; Stuck at GND ;
+; image[379]      ; Input ; Info     ; Stuck at VCC ;
+; image[378]      ; Input ; Info     ; Stuck at GND ;
+; image[377]      ; Input ; Info     ; Stuck at VCC ;
+; image[376]      ; Input ; Info     ; Stuck at GND ;
+; image[375]      ; Input ; Info     ; Stuck at VCC ;
+; image[374]      ; Input ; Info     ; Stuck at GND ;
+; image[373]      ; Input ; Info     ; Stuck at VCC ;
+; image[372]      ; Input ; Info     ; Stuck at GND ;
+; image[371]      ; Input ; Info     ; Stuck at VCC ;
+; image[370]      ; Input ; Info     ; Stuck at GND ;
+; image[369]      ; Input ; Info     ; Stuck at VCC ;
+; image[368]      ; Input ; Info     ; Stuck at GND ;
+; image[367]      ; Input ; Info     ; Stuck at VCC ;
+; image[366]      ; Input ; Info     ; Stuck at GND ;
+; image[365]      ; Input ; Info     ; Stuck at VCC ;
+; image[362]      ; Input ; Info     ; Stuck at VCC ;
+; image[361]      ; Input ; Info     ; Stuck at GND ;
+; image[360]      ; Input ; Info     ; Stuck at VCC ;
+; image[359]      ; Input ; Info     ; Stuck at GND ;
+; image[358]      ; Input ; Info     ; Stuck at VCC ;
+; image[357]      ; Input ; Info     ; Stuck at GND ;
+; image[356]      ; Input ; Info     ; Stuck at VCC ;
+; image[355]      ; Input ; Info     ; Stuck at GND ;
+; image[354]      ; Input ; Info     ; Stuck at VCC ;
+; image[353]      ; Input ; Info     ; Stuck at GND ;
+; image[352]      ; Input ; Info     ; Stuck at VCC ;
+; image[351]      ; Input ; Info     ; Stuck at GND ;
+; image[350]      ; Input ; Info     ; Stuck at VCC ;
+; image[349]      ; Input ; Info     ; Stuck at GND ;
+; image[348]      ; Input ; Info     ; Stuck at VCC ;
+; image[347]      ; Input ; Info     ; Stuck at GND ;
+; image[346]      ; Input ; Info     ; Stuck at VCC ;
+; image[345]      ; Input ; Info     ; Stuck at GND ;
+; image[344]      ; Input ; Info     ; Stuck at VCC ;
+; image[343]      ; Input ; Info     ; Stuck at GND ;
+; image[342]      ; Input ; Info     ; Stuck at VCC ;
+; image[341]      ; Input ; Info     ; Stuck at GND ;
+; image[340]      ; Input ; Info     ; Stuck at VCC ;
+; image[339]      ; Input ; Info     ; Stuck at GND ;
+; image[338]      ; Input ; Info     ; Stuck at VCC ;
+; image[337]      ; Input ; Info     ; Stuck at GND ;
+; image[334]      ; Input ; Info     ; Stuck at GND ;
+; image[333]      ; Input ; Info     ; Stuck at VCC ;
+; image[332]      ; Input ; Info     ; Stuck at GND ;
+; image[331]      ; Input ; Info     ; Stuck at VCC ;
+; image[330]      ; Input ; Info     ; Stuck at GND ;
+; image[329]      ; Input ; Info     ; Stuck at VCC ;
+; image[328]      ; Input ; Info     ; Stuck at GND ;
+; image[327]      ; Input ; Info     ; Stuck at VCC ;
+; image[326]      ; Input ; Info     ; Stuck at GND ;
+; image[325]      ; Input ; Info     ; Stuck at VCC ;
+; image[324]      ; Input ; Info     ; Stuck at GND ;
+; image[323]      ; Input ; Info     ; Stuck at VCC ;
+; image[322]      ; Input ; Info     ; Stuck at GND ;
+; image[321]      ; Input ; Info     ; Stuck at VCC ;
+; image[320]      ; Input ; Info     ; Stuck at GND ;
+; image[319]      ; Input ; Info     ; Stuck at VCC ;
+; image[318]      ; Input ; Info     ; Stuck at GND ;
+; image[317]      ; Input ; Info     ; Stuck at VCC ;
+; image[316]      ; Input ; Info     ; Stuck at GND ;
+; image[315]      ; Input ; Info     ; Stuck at VCC ;
+; image[314]      ; Input ; Info     ; Stuck at GND ;
+; image[313]      ; Input ; Info     ; Stuck at VCC ;
+; image[312]      ; Input ; Info     ; Stuck at GND ;
+; image[311]      ; Input ; Info     ; Stuck at VCC ;
+; image[310]      ; Input ; Info     ; Stuck at GND ;
+; image[309]      ; Input ; Info     ; Stuck at VCC ;
+; image[306]      ; Input ; Info     ; Stuck at VCC ;
+; image[305]      ; Input ; Info     ; Stuck at GND ;
+; image[304]      ; Input ; Info     ; Stuck at VCC ;
+; image[303]      ; Input ; Info     ; Stuck at GND ;
+; image[302]      ; Input ; Info     ; Stuck at VCC ;
+; image[301]      ; Input ; Info     ; Stuck at GND ;
+; image[300]      ; Input ; Info     ; Stuck at VCC ;
+; image[299]      ; Input ; Info     ; Stuck at GND ;
+; image[298]      ; Input ; Info     ; Stuck at VCC ;
+; image[297]      ; Input ; Info     ; Stuck at GND ;
+; image[296]      ; Input ; Info     ; Stuck at VCC ;
+; image[295]      ; Input ; Info     ; Stuck at GND ;
+; image[294]      ; Input ; Info     ; Stuck at VCC ;
+; image[293]      ; Input ; Info     ; Stuck at GND ;
+; image[292]      ; Input ; Info     ; Stuck at VCC ;
+; image[291]      ; Input ; Info     ; Stuck at GND ;
+; image[290]      ; Input ; Info     ; Stuck at VCC ;
+; image[289]      ; Input ; Info     ; Stuck at GND ;
+; image[288]      ; Input ; Info     ; Stuck at VCC ;
+; image[287]      ; Input ; Info     ; Stuck at GND ;
+; image[286]      ; Input ; Info     ; Stuck at VCC ;
+; image[285]      ; Input ; Info     ; Stuck at GND ;
+; image[284]      ; Input ; Info     ; Stuck at VCC ;
+; image[283]      ; Input ; Info     ; Stuck at GND ;
+; image[282]      ; Input ; Info     ; Stuck at VCC ;
+; image[281]      ; Input ; Info     ; Stuck at GND ;
+; image[278]      ; Input ; Info     ; Stuck at GND ;
+; image[277]      ; Input ; Info     ; Stuck at VCC ;
+; image[276]      ; Input ; Info     ; Stuck at GND ;
+; image[275]      ; Input ; Info     ; Stuck at VCC ;
+; image[274]      ; Input ; Info     ; Stuck at GND ;
+; image[273]      ; Input ; Info     ; Stuck at VCC ;
+; image[272]      ; Input ; Info     ; Stuck at GND ;
+; image[271]      ; Input ; Info     ; Stuck at VCC ;
+; image[270]      ; Input ; Info     ; Stuck at GND ;
+; image[269]      ; Input ; Info     ; Stuck at VCC ;
+; image[268]      ; Input ; Info     ; Stuck at GND ;
+; image[267]      ; Input ; Info     ; Stuck at VCC ;
+; image[266]      ; Input ; Info     ; Stuck at GND ;
+; image[265]      ; Input ; Info     ; Stuck at VCC ;
+; image[264]      ; Input ; Info     ; Stuck at GND ;
+; image[263]      ; Input ; Info     ; Stuck at VCC ;
+; image[262]      ; Input ; Info     ; Stuck at GND ;
+; image[261]      ; Input ; Info     ; Stuck at VCC ;
+; image[260]      ; Input ; Info     ; Stuck at GND ;
+; image[259]      ; Input ; Info     ; Stuck at VCC ;
+; image[258]      ; Input ; Info     ; Stuck at GND ;
+; image[257]      ; Input ; Info     ; Stuck at VCC ;
+; image[256]      ; Input ; Info     ; Stuck at GND ;
+; image[255]      ; Input ; Info     ; Stuck at VCC ;
+; image[254]      ; Input ; Info     ; Stuck at GND ;
+; image[253]      ; Input ; Info     ; Stuck at VCC ;
+; image[250]      ; Input ; Info     ; Stuck at VCC ;
+; image[249]      ; Input ; Info     ; Stuck at GND ;
+; image[248]      ; Input ; Info     ; Stuck at VCC ;
+; image[247]      ; Input ; Info     ; Stuck at GND ;
+; image[246]      ; Input ; Info     ; Stuck at VCC ;
+; image[245]      ; Input ; Info     ; Stuck at GND ;
+; image[244]      ; Input ; Info     ; Stuck at VCC ;
+; image[243]      ; Input ; Info     ; Stuck at GND ;
+; image[242]      ; Input ; Info     ; Stuck at VCC ;
+; image[241]      ; Input ; Info     ; Stuck at GND ;
+; image[240]      ; Input ; Info     ; Stuck at VCC ;
+; image[239]      ; Input ; Info     ; Stuck at GND ;
+; image[238]      ; Input ; Info     ; Stuck at VCC ;
+; image[237]      ; Input ; Info     ; Stuck at GND ;
+; image[236]      ; Input ; Info     ; Stuck at VCC ;
+; image[235]      ; Input ; Info     ; Stuck at GND ;
+; image[234]      ; Input ; Info     ; Stuck at VCC ;
+; image[233]      ; Input ; Info     ; Stuck at GND ;
+; image[232]      ; Input ; Info     ; Stuck at VCC ;
+; image[231]      ; Input ; Info     ; Stuck at GND ;
+; image[230]      ; Input ; Info     ; Stuck at VCC ;
+; image[229]      ; Input ; Info     ; Stuck at GND ;
+; image[228]      ; Input ; Info     ; Stuck at VCC ;
+; image[227]      ; Input ; Info     ; Stuck at GND ;
+; image[226]      ; Input ; Info     ; Stuck at VCC ;
+; image[225]      ; Input ; Info     ; Stuck at GND ;
+; image[222]      ; Input ; Info     ; Stuck at GND ;
+; image[221]      ; Input ; Info     ; Stuck at VCC ;
+; image[220]      ; Input ; Info     ; Stuck at GND ;
+; image[219]      ; Input ; Info     ; Stuck at VCC ;
+; image[218]      ; Input ; Info     ; Stuck at GND ;
+; image[217]      ; Input ; Info     ; Stuck at VCC ;
+; image[216]      ; Input ; Info     ; Stuck at GND ;
+; image[215]      ; Input ; Info     ; Stuck at VCC ;
+; image[214]      ; Input ; Info     ; Stuck at GND ;
+; image[213]      ; Input ; Info     ; Stuck at VCC ;
+; image[212]      ; Input ; Info     ; Stuck at GND ;
+; image[211]      ; Input ; Info     ; Stuck at VCC ;
+; image[210]      ; Input ; Info     ; Stuck at GND ;
+; image[209]      ; Input ; Info     ; Stuck at VCC ;
+; image[208]      ; Input ; Info     ; Stuck at GND ;
+; image[207]      ; Input ; Info     ; Stuck at VCC ;
+; image[206]      ; Input ; Info     ; Stuck at GND ;
+; image[205]      ; Input ; Info     ; Stuck at VCC ;
+; image[204]      ; Input ; Info     ; Stuck at GND ;
+; image[203]      ; Input ; Info     ; Stuck at VCC ;
+; image[202]      ; Input ; Info     ; Stuck at GND ;
+; image[201]      ; Input ; Info     ; Stuck at VCC ;
+; image[200]      ; Input ; Info     ; Stuck at GND ;
+; image[199]      ; Input ; Info     ; Stuck at VCC ;
+; image[198]      ; Input ; Info     ; Stuck at GND ;
+; image[197]      ; Input ; Info     ; Stuck at VCC ;
+; image[194]      ; Input ; Info     ; Stuck at VCC ;
+; image[193]      ; Input ; Info     ; Stuck at GND ;
+; image[192]      ; Input ; Info     ; Stuck at VCC ;
+; image[191]      ; Input ; Info     ; Stuck at GND ;
+; image[190]      ; Input ; Info     ; Stuck at VCC ;
+; image[189]      ; Input ; Info     ; Stuck at GND ;
+; image[188]      ; Input ; Info     ; Stuck at VCC ;
+; image[187]      ; Input ; Info     ; Stuck at GND ;
+; image[186]      ; Input ; Info     ; Stuck at VCC ;
+; image[185]      ; Input ; Info     ; Stuck at GND ;
+; image[184]      ; Input ; Info     ; Stuck at VCC ;
+; image[183]      ; Input ; Info     ; Stuck at GND ;
+; image[182]      ; Input ; Info     ; Stuck at VCC ;
+; image[181]      ; Input ; Info     ; Stuck at GND ;
+; image[180]      ; Input ; Info     ; Stuck at VCC ;
+; image[179]      ; Input ; Info     ; Stuck at GND ;
+; image[178]      ; Input ; Info     ; Stuck at VCC ;
+; image[177]      ; Input ; Info     ; Stuck at GND ;
+; image[176]      ; Input ; Info     ; Stuck at VCC ;
+; image[175]      ; Input ; Info     ; Stuck at GND ;
+; image[174]      ; Input ; Info     ; Stuck at VCC ;
+; image[173]      ; Input ; Info     ; Stuck at GND ;
+; image[172]      ; Input ; Info     ; Stuck at VCC ;
+; image[171]      ; Input ; Info     ; Stuck at GND ;
+; image[170]      ; Input ; Info     ; Stuck at VCC ;
+; image[169]      ; Input ; Info     ; Stuck at GND ;
+; image[166]      ; Input ; Info     ; Stuck at GND ;
+; image[165]      ; Input ; Info     ; Stuck at VCC ;
+; image[164]      ; Input ; Info     ; Stuck at GND ;
+; image[163]      ; Input ; Info     ; Stuck at VCC ;
+; image[162]      ; Input ; Info     ; Stuck at GND ;
+; image[161]      ; Input ; Info     ; Stuck at VCC ;
+; image[160]      ; Input ; Info     ; Stuck at GND ;
+; image[159]      ; Input ; Info     ; Stuck at VCC ;
+; image[158]      ; Input ; Info     ; Stuck at GND ;
+; image[157]      ; Input ; Info     ; Stuck at VCC ;
+; image[156]      ; Input ; Info     ; Stuck at GND ;
+; image[155]      ; Input ; Info     ; Stuck at VCC ;
+; image[154]      ; Input ; Info     ; Stuck at GND ;
+; image[153]      ; Input ; Info     ; Stuck at VCC ;
+; image[152]      ; Input ; Info     ; Stuck at GND ;
+; image[151]      ; Input ; Info     ; Stuck at VCC ;
+; image[150]      ; Input ; Info     ; Stuck at GND ;
+; image[149]      ; Input ; Info     ; Stuck at VCC ;
+; image[148]      ; Input ; Info     ; Stuck at GND ;
+; image[147]      ; Input ; Info     ; Stuck at VCC ;
+; image[146]      ; Input ; Info     ; Stuck at GND ;
+; image[145]      ; Input ; Info     ; Stuck at VCC ;
+; image[144]      ; Input ; Info     ; Stuck at GND ;
+; image[143]      ; Input ; Info     ; Stuck at VCC ;
+; image[142]      ; Input ; Info     ; Stuck at GND ;
+; image[141]      ; Input ; Info     ; Stuck at VCC ;
+; image[138]      ; Input ; Info     ; Stuck at VCC ;
+; image[137]      ; Input ; Info     ; Stuck at GND ;
+; image[136]      ; Input ; Info     ; Stuck at VCC ;
+; image[135]      ; Input ; Info     ; Stuck at GND ;
+; image[134]      ; Input ; Info     ; Stuck at VCC ;
+; image[133]      ; Input ; Info     ; Stuck at GND ;
+; image[132]      ; Input ; Info     ; Stuck at VCC ;
+; image[131]      ; Input ; Info     ; Stuck at GND ;
+; image[130]      ; Input ; Info     ; Stuck at VCC ;
+; image[129]      ; Input ; Info     ; Stuck at GND ;
+; image[128]      ; Input ; Info     ; Stuck at VCC ;
+; image[127]      ; Input ; Info     ; Stuck at GND ;
+; image[126]      ; Input ; Info     ; Stuck at VCC ;
+; image[125]      ; Input ; Info     ; Stuck at GND ;
+; image[124]      ; Input ; Info     ; Stuck at VCC ;
+; image[123]      ; Input ; Info     ; Stuck at GND ;
+; image[122]      ; Input ; Info     ; Stuck at VCC ;
+; image[121]      ; Input ; Info     ; Stuck at GND ;
+; image[120]      ; Input ; Info     ; Stuck at VCC ;
+; image[119]      ; Input ; Info     ; Stuck at GND ;
+; image[118]      ; Input ; Info     ; Stuck at VCC ;
+; image[117]      ; Input ; Info     ; Stuck at GND ;
+; image[116]      ; Input ; Info     ; Stuck at VCC ;
+; image[115]      ; Input ; Info     ; Stuck at GND ;
+; image[114]      ; Input ; Info     ; Stuck at VCC ;
+; image[113]      ; Input ; Info     ; Stuck at GND ;
+; image[110]      ; Input ; Info     ; Stuck at GND ;
+; image[109]      ; Input ; Info     ; Stuck at VCC ;
+; image[108]      ; Input ; Info     ; Stuck at GND ;
+; image[107]      ; Input ; Info     ; Stuck at VCC ;
+; image[106]      ; Input ; Info     ; Stuck at GND ;
+; image[105]      ; Input ; Info     ; Stuck at VCC ;
+; image[104]      ; Input ; Info     ; Stuck at GND ;
+; image[103]      ; Input ; Info     ; Stuck at VCC ;
+; image[102]      ; Input ; Info     ; Stuck at GND ;
+; image[101]      ; Input ; Info     ; Stuck at VCC ;
+; image[100]      ; Input ; Info     ; Stuck at GND ;
+; image[99]       ; Input ; Info     ; Stuck at VCC ;
+; image[98]       ; Input ; Info     ; Stuck at GND ;
+; image[97]       ; Input ; Info     ; Stuck at VCC ;
+; image[96]       ; Input ; Info     ; Stuck at GND ;
+; image[95]       ; Input ; Info     ; Stuck at VCC ;
+; image[94]       ; Input ; Info     ; Stuck at GND ;
+; image[93]       ; Input ; Info     ; Stuck at VCC ;
+; image[92]       ; Input ; Info     ; Stuck at GND ;
+; image[91]       ; Input ; Info     ; Stuck at VCC ;
+; image[90]       ; Input ; Info     ; Stuck at GND ;
+; image[89]       ; Input ; Info     ; Stuck at VCC ;
+; image[88]       ; Input ; Info     ; Stuck at GND ;
+; image[87]       ; Input ; Info     ; Stuck at VCC ;
+; image[86]       ; Input ; Info     ; Stuck at GND ;
+; image[85]       ; Input ; Info     ; Stuck at VCC ;
+; image[82]       ; Input ; Info     ; Stuck at VCC ;
+; image[81]       ; Input ; Info     ; Stuck at GND ;
+; image[80]       ; Input ; Info     ; Stuck at VCC ;
+; image[79]       ; Input ; Info     ; Stuck at GND ;
+; image[78]       ; Input ; Info     ; Stuck at VCC ;
+; image[77]       ; Input ; Info     ; Stuck at GND ;
+; image[76]       ; Input ; Info     ; Stuck at VCC ;
+; image[75]       ; Input ; Info     ; Stuck at GND ;
+; image[74]       ; Input ; Info     ; Stuck at VCC ;
+; image[73]       ; Input ; Info     ; Stuck at GND ;
+; image[72]       ; Input ; Info     ; Stuck at VCC ;
+; image[71]       ; Input ; Info     ; Stuck at GND ;
+; image[70]       ; Input ; Info     ; Stuck at VCC ;
+; image[69]       ; Input ; Info     ; Stuck at GND ;
+; image[68]       ; Input ; Info     ; Stuck at VCC ;
+; image[67]       ; Input ; Info     ; Stuck at GND ;
+; image[66]       ; Input ; Info     ; Stuck at VCC ;
+; image[65]       ; Input ; Info     ; Stuck at GND ;
+; image[64]       ; Input ; Info     ; Stuck at VCC ;
+; image[63]       ; Input ; Info     ; Stuck at GND ;
+; image[62]       ; Input ; Info     ; Stuck at VCC ;
+; image[61]       ; Input ; Info     ; Stuck at GND ;
+; image[60]       ; Input ; Info     ; Stuck at VCC ;
+; image[59]       ; Input ; Info     ; Stuck at GND ;
+; image[58]       ; Input ; Info     ; Stuck at VCC ;
+; image[57]       ; Input ; Info     ; Stuck at GND ;
+; image[54]       ; Input ; Info     ; Stuck at GND ;
+; image[53]       ; Input ; Info     ; Stuck at VCC ;
+; image[52]       ; Input ; Info     ; Stuck at GND ;
+; image[51]       ; Input ; Info     ; Stuck at VCC ;
+; image[50]       ; Input ; Info     ; Stuck at GND ;
+; image[49]       ; Input ; Info     ; Stuck at VCC ;
+; image[48]       ; Input ; Info     ; Stuck at GND ;
+; image[47]       ; Input ; Info     ; Stuck at VCC ;
+; image[46]       ; Input ; Info     ; Stuck at GND ;
+; image[45]       ; Input ; Info     ; Stuck at VCC ;
+; image[44]       ; Input ; Info     ; Stuck at GND ;
+; image[43]       ; Input ; Info     ; Stuck at VCC ;
+; image[42]       ; Input ; Info     ; Stuck at GND ;
+; image[41]       ; Input ; Info     ; Stuck at VCC ;
+; image[40]       ; Input ; Info     ; Stuck at GND ;
+; image[39]       ; Input ; Info     ; Stuck at VCC ;
+; image[38]       ; Input ; Info     ; Stuck at GND ;
+; image[37]       ; Input ; Info     ; Stuck at VCC ;
+; image[36]       ; Input ; Info     ; Stuck at GND ;
+; image[35]       ; Input ; Info     ; Stuck at VCC ;
+; image[34]       ; Input ; Info     ; Stuck at GND ;
+; image[33]       ; Input ; Info     ; Stuck at VCC ;
+; image[32]       ; Input ; Info     ; Stuck at GND ;
+; image[31]       ; Input ; Info     ; Stuck at VCC ;
+; image[30]       ; Input ; Info     ; Stuck at GND ;
+; image[29]       ; Input ; Info     ; Stuck at VCC ;
+; image[26]       ; Input ; Info     ; Stuck at VCC ;
+; image[25]       ; Input ; Info     ; Stuck at GND ;
+; image[24]       ; Input ; Info     ; Stuck at VCC ;
+; image[23]       ; Input ; Info     ; Stuck at GND ;
+; image[22]       ; Input ; Info     ; Stuck at VCC ;
+; image[21]       ; Input ; Info     ; Stuck at GND ;
+; image[20]       ; Input ; Info     ; Stuck at VCC ;
+; image[19]       ; Input ; Info     ; Stuck at GND ;
+; image[18]       ; Input ; Info     ; Stuck at VCC ;
+; image[17]       ; Input ; Info     ; Stuck at GND ;
+; image[16]       ; Input ; Info     ; Stuck at VCC ;
+; image[15]       ; Input ; Info     ; Stuck at GND ;
+; image[14]       ; Input ; Info     ; Stuck at VCC ;
+; image[13]       ; Input ; Info     ; Stuck at GND ;
+; image[12]       ; Input ; Info     ; Stuck at VCC ;
+; image[11]       ; Input ; Info     ; Stuck at GND ;
+; image[10]       ; Input ; Info     ; Stuck at VCC ;
+; image[9]        ; Input ; Info     ; Stuck at GND ;
+; image[8]        ; Input ; Info     ; Stuck at VCC ;
+; image[7]        ; Input ; Info     ; Stuck at GND ;
+; image[6]        ; Input ; Info     ; Stuck at VCC ;
+; image[5]        ; Input ; Info     ; Stuck at GND ;
+; image[4]        ; Input ; Info     ; Stuck at VCC ;
+; image[3]        ; Input ; Info     ; Stuck at GND ;
+; image[2]        ; Input ; Info     ; Stuck at VCC ;
+; image[1]        ; Input ; Info     ; Stuck at GND ;
+; image[0]        ; Input ; Info     ; Stuck at VCC ;
++-----------------+-------+----------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "clock_divider:cdiv"                                                                           ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port           ; Type   ; Severity ; Details                                                                             ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; divided_clocks ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 129                         ;
+;     CLR               ; 10                          ;
+;     ENA               ; 11                          ;
+;     ENA CLR SCLR      ; 9                           ;
+;     ENA SCLR          ; 37                          ;
+;     SCLR              ; 23                          ;
+;     SLD               ; 3                           ;
+;     plain             ; 36                          ;
+; arriav_lcell_comb     ; 173                         ;
+;     arith             ; 77                          ;
+;         1 data inputs ; 77                          ;
+;     normal            ; 88                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 19                          ;
+;         3 data inputs ; 4                           ;
+;         4 data inputs ; 15                          ;
+;         5 data inputs ; 31                          ;
+;         6 data inputs ; 15                          ;
+;     shared            ; 8                           ;
+;         2 data inputs ; 3                           ;
+;         3 data inputs ; 5                           ;
+; boundary_port         ; 34                          ;
+; stratixv_ram_block    ; 1                           ;
+;                       ;                             ;
+; Max LUT depth         ; 3.00                        ;
+; Average LUT depth     ; 1.95                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+    Info: Processing started: Fri May 18 14:41:05 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE1_SoC -c DE1_SoC
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 2 entities, in source file de1_soc.sv
+    Info (12023): Found entity 1: DE1_SoC File: C:/Users/lucas/Documents/GitHub/EE371Lab4/video/DE1_SoC.sv Line: 2
+    Info (12023): Found entity 2: clock_divider File: C:/Users/lucas/Documents/GitHub/EE371Lab4/video/DE1_SoC.sv Line: 59
+Info (12021): Found 1 design units, including 1 entities, in source file video_driver.sv
+    Info (12023): Found entity 1: video_driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/video/video_driver.sv Line: 1
+Info (12021): Found 2 design units, including 2 entities, in source file vgaimage.sv
+    Info (12023): Found entity 1: vgaImage File: C:/Users/lucas/Documents/GitHub/EE371Lab4/video/vgaImage.sv Line: 6
+    Info (12023): Found entity 2: vgaImage_testbench File: C:/Users/lucas/Documents/GitHub/EE371Lab4/video/vgaImage.sv Line: 71
+Info (12021): Found 1 design units, including 1 entities, in source file altera_up_avalon_video_vga_timing.v
+    Info (12023): Found entity 1: altera_up_avalon_video_vga_timing File: C:/Users/lucas/Documents/GitHub/EE371Lab4/video/altera_up_avalon_video_vga_timing.v Line: 47
+Info (12127): Elaborating entity "DE1_SoC" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at DE1_SoC.sv(29): object "valueB" assigned a value but never read File: C:/Users/lucas/Documents/GitHub/EE371Lab4/video/DE1_SoC.sv Line: 29
+Warning (10036): Verilog HDL or VHDL warning at DE1_SoC.sv(30): object "valueC" assigned a value but never read File: C:/Users/lucas/Documents/GitHub/EE371Lab4/video/DE1_SoC.sv Line: 30
+Warning (10036): Verilog HDL or VHDL warning at DE1_SoC.sv(31): object "valueD" assigned a value but never read File: C:/Users/lucas/Documents/GitHub/EE371Lab4/video/DE1_SoC.sv Line: 31
+Warning (10036): Verilog HDL or VHDL warning at DE1_SoC.sv(32): object "valueE" assigned a value but never read File: C:/Users/lucas/Documents/GitHub/EE371Lab4/video/DE1_SoC.sv Line: 32
+Warning (10036): Verilog HDL or VHDL warning at DE1_SoC.sv(33): object "valueF" assigned a value but never read File: C:/Users/lucas/Documents/GitHub/EE371Lab4/video/DE1_SoC.sv Line: 33
+Info (12128): Elaborating entity "clock_divider" for hierarchy "clock_divider:cdiv" File: C:/Users/lucas/Documents/GitHub/EE371Lab4/video/DE1_SoC.sv Line: 23
+Info (12128): Elaborating entity "vgaImage" for hierarchy "vgaImage:vga" File: C:/Users/lucas/Documents/GitHub/EE371Lab4/video/DE1_SoC.sv Line: 53
+Warning (10036): Verilog HDL or VHDL warning at vgaImage.sv(21): object "oldY" assigned a value but never read File: C:/Users/lucas/Documents/GitHub/EE371Lab4/video/vgaImage.sv Line: 21
+Warning (10230): Verilog HDL assignment warning at vgaImage.sv(31): truncated value with size 32 to match size of target (10) File: C:/Users/lucas/Documents/GitHub/EE371Lab4/video/vgaImage.sv Line: 31
+Info (12128): Elaborating entity "video_driver" for hierarchy "vgaImage:vga|video_driver:vgaOut" File: C:/Users/lucas/Documents/GitHub/EE371Lab4/video/vgaImage.sv Line: 66
+Info (12128): Elaborating entity "altera_up_avalon_video_vga_timing" for hierarchy "vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video" File: C:/Users/lucas/Documents/GitHub/EE371Lab4/video/video_driver.sv Line: 144
+Warning (10230): Verilog HDL assignment warning at altera_up_avalon_video_vga_timing.v(218): truncated value with size 32 to match size of target (10) File: C:/Users/lucas/Documents/GitHub/EE371Lab4/video/altera_up_avalon_video_vga_timing.v Line: 218
+Warning (10230): Verilog HDL assignment warning at altera_up_avalon_video_vga_timing.v(219): truncated value with size 32 to match size of target (10) File: C:/Users/lucas/Documents/GitHub/EE371Lab4/video/altera_up_avalon_video_vga_timing.v Line: 219
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276031): Inferred altsyncram megafunction from the following design logic: "vgaImage:vga|Mux7_rtl_0"
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 1
+        Info (286033): Parameter WIDTHAD_A set to 9
+        Info (286033): Parameter NUMWORDS_A set to 512
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter RAM_BLOCK_TYPE set to AUTO
+        Info (286033): Parameter INIT_FILE set to DE1_SoC.DE1_SoC0.rtl.mif
+Info (12130): Elaborated megafunction instantiation "vgaImage:vga|altsyncram:Mux7_rtl_0"
+Info (12133): Instantiated megafunction "vgaImage:vga|altsyncram:Mux7_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "1"
+    Info (12134): Parameter "WIDTHAD_A" = "9"
+    Info (12134): Parameter "NUMWORDS_A" = "512"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "RAM_BLOCK_TYPE" = "AUTO"
+    Info (12134): Parameter "INIT_FILE" = "DE1_SoC.DE1_SoC0.rtl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ok51.tdf
+    Info (12023): Found entity 1: altsyncram_ok51 File: C:/Users/lucas/Documents/GitHub/EE371Lab4/video/db/altsyncram_ok51.tdf Line: 28
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 236 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 29 output pins
+    Info (21061): Implemented 201 logic cells
+    Info (21064): Implemented 1 RAM segments
+Info (144001): Generated suppressed messages file C:/Users/lucas/Documents/GitHub/EE371Lab4/video/output_files/DE1_SoC.map.smsg
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings
+    Info: Peak virtual memory: 761 megabytes
+    Info: Processing ended: Fri May 18 14:41:15 2018
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:22
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/lucas/Documents/GitHub/EE371Lab4/video/output_files/DE1_SoC.map.smsg.
+
+

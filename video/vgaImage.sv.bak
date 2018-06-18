@@ -1,0 +1,42 @@
+// A file to send images to the vgadriver module
+// Author: Rebecca Rollins
+module vgaImage (image, clk, CLOCK_50, reset, VGA_R, VGA_G, VGA_B, VGA_BLANK_N, VGA_CLK, VGA_HS, VGA_SYNC_N, VGA_VS);
+	input logic [7:0][7:0] image; // FIX - how big??
+	input logic clk, CLOCK_50;
+	input logic reset;
+	output [7:0] VGA_R;
+	output [7:0] VGA_G;
+	output [7:0] VGA_B;
+	output VGA_BLANK_N;
+	output VGA_CLK;
+	output VGA_HS;
+	output VGA_SYNC_N;
+	output VGA_VS;			// FIX: PIN assignments?
+	
+	logic [9:0] x;
+	logic [8:0] y;
+	logic [7:0] ps, ns; // pixel from image
+	
+	// Next state
+	always_comb begin
+		ns = ps[8:0] + 1'b1;
+	end
+	
+	// Go through each bit in image
+	always_ff @(negedge reset or posedge clk)
+		if(!reset)
+			ps = 1'b0;
+		else
+			ps <= ns;		
+			
+	// FIX: only change pixel from image if the vgadriver x or y value is changed?
+	
+	// Connect to video driver
+	video_driver vgaOut 
+				(.CLOCK_50(CLOCK_50), .reset(reset), .x(x), .y(y), 
+				.r(image[ps][7:0]), .g(image[ps][7:0]), .b(image[ps][7:0]), 
+				.VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B), 
+				.VGA_BLANK_N(VGA_BLANK_N), .VGA_CLK(VGA_CLK), .VGA_HS(VGA_HS),
+				.VGA_SYNC_N(VGA_SYNC_N), .VGA_VS(VGA_VS)); 
+		
+endmodule

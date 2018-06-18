@@ -1,0 +1,11 @@
+module imageTransfer(clk, reset, imageRegister, inputControl, outputControl);
+
+	input clk, reset;
+	input [31:0] imageRegister;
+	input [7:0] inputControl;
+	output [7:0] outputControl;
+	
+	
+
+
+endmodule

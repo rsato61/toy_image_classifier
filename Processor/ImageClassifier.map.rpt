@@ -1,0 +1,697 @@
+Analysis & Synthesis report for ImageClassifier
+Mon May 28 13:43:13 2018
+Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: vgaImage:vga|video_driver:vgaOut
+ 15. Parameter Settings for User Entity Instance: vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video
+ 16. Parameter Settings for User Entity Instance: distance:calDistance
+ 17. Parameter Settings for User Entity Instance: ImageTransfer:comb_7
+ 18. Port Connectivity Checks: "vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video"
+ 19. Post-Synthesis Netlist Statistics for Top Partition
+ 20. Elapsed Time Per Partition
+ 21. Analysis & Synthesis Messages
+ 22. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Mon May 28 13:43:13 2018       ;
+; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
+; Revision Name                   ; ImageClassifier                             ;
+; Top-level Entity Name           ; ImageClassifier                             ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 12755                                       ;
+; Total pins                      ; 80                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 4                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; ImageClassifier    ; ImageClassifier    ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; OpenCore Plus hardware evaluation                                               ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.97        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;  33.6%      ;
+;     Processor 3            ;  33.6%      ;
+;     Processor 4            ;  29.5%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                           ;
++-----------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path        ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                ; Library ;
++-----------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------+---------+
+; ../algorithm/imageDistance.sv           ; yes             ; User SystemVerilog HDL File  ; C:/Users/lucas/Documents/GitHub/EE371Lab4/algorithm/imageDistance.sv                        ;         ;
+; ImageTransfer.sv                        ; yes             ; User SystemVerilog HDL File  ; C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageTransfer.sv                        ;         ;
+; vga/video_driver.sv                     ; yes             ; User SystemVerilog HDL File  ; C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/vga/video_driver.sv                     ;         ;
+; vga/vgaImage.sv                         ; yes             ; User SystemVerilog HDL File  ; C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/vga/vgaImage.sv                         ;         ;
+; vga/altera_up_avalon_video_vga_timing.v ; yes             ; User Verilog HDL File        ; C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/vga/altera_up_avalon_video_vga_timing.v ;         ;
+; ImageClassifier.sv                      ; yes             ; User SystemVerilog HDL File  ; C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv                      ;         ;
++-----------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                   ;
++---------------------------------------------+-----------------+
+; Resource                                    ; Usage           ;
++---------------------------------------------+-----------------+
+; Estimate of Logic utilization (ALMs needed) ; 10484           ;
+;                                             ;                 ;
+; Combinational ALUT usage for logic          ; 11250           ;
+;     -- 7 input functions                    ; 0               ;
+;     -- 6 input functions                    ; 6836            ;
+;     -- 5 input functions                    ; 728             ;
+;     -- 4 input functions                    ; 110             ;
+;     -- <=3 input functions                  ; 3576            ;
+;                                             ;                 ;
+; Dedicated logic registers                   ; 12755           ;
+;                                             ;                 ;
+; I/O pins                                    ; 80              ;
+;                                             ;                 ;
+; Total DSP Blocks                            ; 4               ;
+;                                             ;                 ;
+; Maximum fan-out node                        ; GPIO_1[5]~input ;
+; Maximum fan-out                             ; 12621           ;
+; Total fan-out                               ; 94235           ;
+; Average fan-out                             ; 3.89            ;
++---------------------------------------------+-----------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                        ;
++----------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------+-----------------------------------+--------------+
+; Compilation Hierarchy Node                         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                       ; Entity Name                       ; Library Name ;
++----------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------+-----------------------------------+--------------+
+; |ImageClassifier                                   ; 11250 (0)           ; 12755 (0)                 ; 0                 ; 4          ; 80   ; 0            ; |ImageClassifier                                                                          ; ImageClassifier                   ; work         ;
+;    |ImageTransfer:comb_7|                          ; 5167 (5167)         ; 12578 (12578)             ; 0                 ; 0          ; 0    ; 0            ; |ImageClassifier|ImageTransfer:comb_7                                                     ; ImageTransfer                     ; work         ;
+;    |distance:calDistance|                          ; 4333 (4333)         ; 43 (43)                   ; 0                 ; 4          ; 0    ; 0            ; |ImageClassifier|distance:calDistance                                                     ; distance                          ; work         ;
+;    |vgaImage:vga|                                  ; 1750 (16)           ; 134 (20)                  ; 0                 ; 0          ; 0    ; 0            ; |ImageClassifier|vgaImage:vga                                                             ; vgaImage                          ; work         ;
+;       |video_driver:vgaOut|                        ; 1734 (1664)         ; 114 (65)                  ; 0                 ; 0          ; 0    ; 0            ; |ImageClassifier|vgaImage:vga|video_driver:vgaOut                                         ; video_driver                      ; work         ;
+;          |altera_up_avalon_video_vga_timing:video| ; 70 (70)             ; 49 (49)                   ; 0                 ; 0          ; 0    ; 0            ; |ImageClassifier|vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video ; altera_up_avalon_video_vga_timing ; work         ;
++----------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------+-----------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary  ;
++---------------------------------+-------------+
+; Statistic                       ; Number Used ;
++---------------------------------+-------------+
+; Two Independent 18x18           ; 2           ;
+; Sum of two 18x18                ; 2           ;
+; Total number of DSP blocks      ; 4           ;
+;                                 ;             ;
+; Fixed Point Unsigned Multiplier ; 6           ;
++---------------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                             ;
++-----------------------------------------------------------------------------------------+------------------------------------------------------+
+; Register name                                                                           ; Reason for Removal                                   ;
++-----------------------------------------------------------------------------------------+------------------------------------------------------+
+; vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video|vga_blue[0,1]  ; Stuck at GND due to stuck port data_in               ;
+; vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video|vga_green[0,1] ; Stuck at GND due to stuck port data_in               ;
+; vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video|vga_red[0,1]   ; Stuck at GND due to stuck port data_in               ;
+; vgaImage:vga|video_driver:vgaOut|gout[0]                                                ; Merged with vgaImage:vga|video_driver:vgaOut|bout[0] ;
+; vgaImage:vga|video_driver:vgaOut|rout[0]                                                ; Merged with vgaImage:vga|video_driver:vgaOut|bout[0] ;
+; vgaImage:vga|video_driver:vgaOut|gout[1]                                                ; Merged with vgaImage:vga|video_driver:vgaOut|bout[1] ;
+; vgaImage:vga|video_driver:vgaOut|rout[1]                                                ; Merged with vgaImage:vga|video_driver:vgaOut|bout[1] ;
+; vgaImage:vga|video_driver:vgaOut|gout[2]                                                ; Merged with vgaImage:vga|video_driver:vgaOut|bout[2] ;
+; vgaImage:vga|video_driver:vgaOut|rout[2]                                                ; Merged with vgaImage:vga|video_driver:vgaOut|bout[2] ;
+; vgaImage:vga|video_driver:vgaOut|gout[3]                                                ; Merged with vgaImage:vga|video_driver:vgaOut|bout[3] ;
+; vgaImage:vga|video_driver:vgaOut|rout[3]                                                ; Merged with vgaImage:vga|video_driver:vgaOut|bout[3] ;
+; vgaImage:vga|video_driver:vgaOut|gout[4]                                                ; Merged with vgaImage:vga|video_driver:vgaOut|bout[4] ;
+; vgaImage:vga|video_driver:vgaOut|rout[4]                                                ; Merged with vgaImage:vga|video_driver:vgaOut|bout[4] ;
+; vgaImage:vga|video_driver:vgaOut|gout[5]                                                ; Merged with vgaImage:vga|video_driver:vgaOut|bout[5] ;
+; vgaImage:vga|video_driver:vgaOut|rout[5]                                                ; Merged with vgaImage:vga|video_driver:vgaOut|bout[5] ;
+; distance:calDistance|select[11..31]                                                     ; Lost fanout                                          ;
+; Total Number of Removed Registers = 39                                                  ;                                                      ;
++-----------------------------------------------------------------------------------------+------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                              ;
++---------------------------------+--------------------+-------------------------------------------------------------------+
+; Register name                   ; Reason for Removal ; Registers Removed due to This Register                            ;
++---------------------------------+--------------------+-------------------------------------------------------------------+
+; distance:calDistance|select[31] ; Lost Fanouts       ; distance:calDistance|select[30], distance:calDistance|select[29], ;
+;                                 ;                    ; distance:calDistance|select[28], distance:calDistance|select[27], ;
+;                                 ;                    ; distance:calDistance|select[26], distance:calDistance|select[25], ;
+;                                 ;                    ; distance:calDistance|select[24], distance:calDistance|select[23], ;
+;                                 ;                    ; distance:calDistance|select[22], distance:calDistance|select[21], ;
+;                                 ;                    ; distance:calDistance|select[20], distance:calDistance|select[19], ;
+;                                 ;                    ; distance:calDistance|select[18], distance:calDistance|select[17], ;
+;                                 ;                    ; distance:calDistance|select[16], distance:calDistance|select[15], ;
+;                                 ;                    ; distance:calDistance|select[14], distance:calDistance|select[13], ;
+;                                 ;                    ; distance:calDistance|select[12], distance:calDistance|select[11]  ;
++---------------------------------+--------------------+-------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 12755 ;
+; Number of registers using Synchronous Clear  ; 145   ;
+; Number of registers using Synchronous Load   ; 3     ;
+; Number of registers using Asynchronous Clear ; 6369  ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 12679 ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------+
+; Inverted Register Statistics                         ;
++--------------------------------------------+---------+
+; Inverted Register                          ; Fan out ;
++--------------------------------------------+---------+
+; ImageTransfer:comb_7|internalKnown[512][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[514][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[528][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[530][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[545][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[547][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[560][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[562][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[576][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[578][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[593][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[595][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[609][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[611][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[624][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[626][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[640][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[642][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[657][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[659][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[672][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[674][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[688][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[690][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[736][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[752][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[705][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[721][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[738][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[754][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[707][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[723][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[516][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[518][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[580][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[582][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[645][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[647][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[709][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[711][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[533][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[535][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[597][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[599][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[661][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[663][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[725][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[727][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[676][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[740][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[549][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[613][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[678][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[742][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[551][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[615][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[564][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[566][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[628][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[630][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[692][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[694][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[757][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[759][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[520][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[568][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[537][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[553][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[522][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[570][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[539][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[555][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[584][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[616][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[632][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[601][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[586][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[618][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[634][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[603][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[680][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[696][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[649][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[665][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[682][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[698][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[651][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[667][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[728][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[744][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[713][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[761][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[730][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[746][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[715][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[763][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[524][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[589][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[653][0] ; 2       ;
+; ImageTransfer:comb_7|internalKnown[717][0] ; 2       ;
+; Total number of inverted registers = 3136* ;         ;
++--------------------------------------------+---------+
+* Table truncated at 100 items. To change the number of inverted registers reported, set the "Number of Inverted Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |ImageClassifier|ImageTransfer:comb_7|distanceByte[1]                                                      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |ImageClassifier|distance:calDistance|select[3]                                                            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |ImageClassifier|ImageTransfer:comb_7|pixelPos[28]                                                         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |ImageClassifier|vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video|pixel_counter[6] ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |ImageClassifier|vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video|pixel_counter[4] ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |ImageClassifier|vgaImage:vga|video_driver:vgaOut|xt[7]                                                    ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |ImageClassifier|distance:calDistance|intenralDistance[23]                                                 ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |ImageClassifier|vgaImage:vga|video_driver:vgaOut|yt[5]                                                    ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |ImageClassifier|vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video|line_counter[9]  ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |ImageClassifier|vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video|line_counter[10] ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |ImageClassifier|vgaImage:vga|video_driver:vgaOut|x[1]                                                     ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |ImageClassifier|vgaImage:vga|video_driver:vgaOut|xd[0]                                                    ;
+; 6:1                ; 9 bits    ; 36 LEs        ; 0 LEs                ; 36 LEs                 ; Yes        ; |ImageClassifier|vgaImage:vga|video_driver:vgaOut|y[6]                                                     ;
+; 6:1                ; 9 bits    ; 36 LEs        ; 0 LEs                ; 36 LEs                 ; Yes        ; |ImageClassifier|vgaImage:vga|video_driver:vgaOut|yd[8]                                                    ;
+; 1025:1             ; 6 bits    ; 4098 LEs      ; 3156 LEs             ; 942 LEs                ; Yes        ; |ImageClassifier|vgaImage:vga|video_driver:vgaOut|bout[2]                                                  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |ImageClassifier|vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video|vga_red          ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |ImageClassifier|ImageTransfer:comb_7|dataRegister[1]                                                      ;
+; 2048:1             ; 16 bits   ; 21840 LEs     ; 8416 LEs             ; 13424 LEs              ; No         ; |ImageClassifier|distance:calDistance|Mux1                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vgaImage:vga|video_driver:vgaOut ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; WIDTH          ; 28    ; Signed Integer                                       ;
+; HEIGHT         ; 28    ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video ;
++-------------------------+------------+--------------------------------------------------------------------------------+
+; Parameter Name          ; Value      ; Type                                                                           ;
++-------------------------+------------+--------------------------------------------------------------------------------+
+; CW                      ; 9          ; Signed Integer                                                                 ;
+; H_ACTIVE                ; 640        ; Signed Integer                                                                 ;
+; H_FRONT_PORCH           ; 16         ; Signed Integer                                                                 ;
+; H_SYNC                  ; 96         ; Signed Integer                                                                 ;
+; H_BACK_PORCH            ; 48         ; Signed Integer                                                                 ;
+; H_TOTAL                 ; 800        ; Signed Integer                                                                 ;
+; V_ACTIVE                ; 480        ; Signed Integer                                                                 ;
+; V_FRONT_PORCH           ; 10         ; Signed Integer                                                                 ;
+; V_SYNC                  ; 2          ; Signed Integer                                                                 ;
+; V_BACK_PORCH            ; 33         ; Signed Integer                                                                 ;
+; V_TOTAL                 ; 525        ; Signed Integer                                                                 ;
+; PW                      ; 10         ; Signed Integer                                                                 ;
+; PIXEL_COUNTER_INCREMENT ; 0000000001 ; Unsigned Binary                                                                ;
+; LW                      ; 10         ; Signed Integer                                                                 ;
+; LINE_COUNTER_INCREMENT  ; 0000000001 ; Unsigned Binary                                                                ;
++-------------------------+------------+--------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: distance:calDistance ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; RESET          ; 000   ; Unsigned Binary                          ;
+; KNOWN          ; 001   ; Unsigned Binary                          ;
+; KNOWN_INC_DIFF ; 010   ; Unsigned Binary                          ;
+; INC_DIFF       ; 011   ; Unsigned Binary                          ;
+; UNKNOWN        ; 100   ; Unsigned Binary                          ;
+; WRITE          ; 101   ; Unsigned Binary                          ;
+; RESET_DISTANCE ; 110   ; Unsigned Binary                          ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ImageTransfer:comb_7 ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; RESET          ; 000   ; Unsigned Binary                          ;
+; KNOWN          ; 001   ; Unsigned Binary                          ;
+; KNOWN_INC_DIFF ; 010   ; Unsigned Binary                          ;
+; INC_DIFF       ; 011   ; Unsigned Binary                          ;
+; UNKNOWN        ; 100   ; Unsigned Binary                          ;
+; WRITE          ; 101   ; Unsigned Binary                          ;
+; RESET_DISTANCE ; 110   ; Unsigned Binary                          ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video"                                                                           ;
++----------------------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+; Port                       ; Type   ; Severity ; Details                                                                                                                       ;
++----------------------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+; red_to_vga_display[1..0]   ; Input  ; Info     ; Stuck at GND                                                                                                                  ;
+; green_to_vga_display[1..0] ; Input  ; Info     ; Stuck at GND                                                                                                                  ;
+; blue_to_vga_display[1..0]  ; Input  ; Info     ; Stuck at GND                                                                                                                  ;
+; color_select               ; Input  ; Info     ; Stuck at VCC                                                                                                                  ;
+; end_of_frame               ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                           ;
+; vga_c_sync                 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                           ;
+; vga_data_enable            ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                           ;
+; vga_red                    ; Output ; Warning  ; Output or bidir port (10 bits) is wider than the port expression (8 bits) it drives; bit(s) "vga_red[9..8]" have no fanouts   ;
+; vga_green                  ; Output ; Warning  ; Output or bidir port (10 bits) is wider than the port expression (8 bits) it drives; bit(s) "vga_green[9..8]" have no fanouts ;
+; vga_blue                   ; Output ; Warning  ; Output or bidir port (10 bits) is wider than the port expression (8 bits) it drives; bit(s) "vga_blue[9..8]" have no fanouts  ;
+; vga_color_data             ; Output ; Info     ; Explicitly unconnected                                                                                                        ;
++----------------------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 12755                       ;
+;     CLR               ; 10                          ;
+;     ENA               ; 6283                        ;
+;     ENA CLR           ; 6274                        ;
+;     ENA CLR SCLR      ; 85                          ;
+;     ENA SCLR          ; 37                          ;
+;     SCLR              ; 23                          ;
+;     SLD               ; 3                           ;
+;     plain             ; 40                          ;
+; arriav_io_obuf        ; 36                          ;
+; arriav_lcell_comb     ; 11251                       ;
+;     arith             ; 140                         ;
+;         0 data inputs ; 4                           ;
+;         1 data inputs ; 120                         ;
+;         2 data inputs ; 16                          ;
+;     normal            ; 11039                       ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 3138                        ;
+;         2 data inputs ; 99                          ;
+;         3 data inputs ; 127                         ;
+;         4 data inputs ; 110                         ;
+;         5 data inputs ; 728                         ;
+;         6 data inputs ; 6836                        ;
+;     shared            ; 72                          ;
+;         2 data inputs ; 39                          ;
+;         3 data inputs ; 33                          ;
+; arriav_mac            ; 4                           ;
+; boundary_port         ; 80                          ;
+;                       ;                             ;
+; Max LUT depth         ; 9.00                        ;
+; Average LUT depth     ; 6.59                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:15     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+    Info: Processing started: Mon May 28 13:42:43 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ImageClassifier -c ImageClassifier
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /users/lucas/documents/github/ee371lab4/algorithm/imagedistance.sv
+    Info (12023): Found entity 1: distance File: C:/Users/lucas/Documents/GitHub/EE371Lab4/algorithm/imageDistance.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /users/lucas/documents/github/ee371lab4/algorithm/getdiff.sv
+    Info (12023): Found entity 1: getDiff File: C:/Users/lucas/Documents/GitHub/EE371Lab4/algorithm/getDiff.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /users/lucas/documents/github/ee371lab4/algorithm/adddiff.sv
+    Info (12023): Found entity 1: addDiff File: C:/Users/lucas/Documents/GitHub/EE371Lab4/algorithm/addDiff.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file imagetransfer.sv
+    Info (12023): Found entity 1: ImageTransfer File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageTransfer.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file vga/video_driver.sv
+    Info (12023): Found entity 1: video_driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/vga/video_driver.sv Line: 1
+Info (12021): Found 2 design units, including 2 entities, in source file vga/vgaimage.sv
+    Info (12023): Found entity 1: vgaImage File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/vga/vgaImage.sv Line: 6
+    Info (12023): Found entity 2: vgaImage_testbench File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/vga/vgaImage.sv Line: 71
+Info (12021): Found 1 design units, including 1 entities, in source file vga/altera_up_avalon_video_vga_timing.v
+    Info (12023): Found entity 1: altera_up_avalon_video_vga_timing File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/vga/altera_up_avalon_video_vga_timing.v Line: 47
+Info (12021): Found 2 design units, including 2 entities, in source file imageclassifier.sv
+    Info (12023): Found entity 1: ImageClassifier File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 1
+    Info (12023): Found entity 2: clock_divider File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 61
+Critical Warning (10846): Verilog HDL Instantiation warning at ImageClassifier.sv(52): instance has no name File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 52
+Info (12127): Elaborating entity "ImageClassifier" for the top level hierarchy
+Warning (10034): Output port "LEDR" at ImageClassifier.sv(5) has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 5
+Info (12128): Elaborating entity "vgaImage" for hierarchy "vgaImage:vga" File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 34
+Warning (10036): Verilog HDL or VHDL warning at vgaImage.sv(21): object "oldY" assigned a value but never read File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/vga/vgaImage.sv Line: 21
+Warning (10230): Verilog HDL assignment warning at vgaImage.sv(31): truncated value with size 32 to match size of target (10) File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/vga/vgaImage.sv Line: 31
+Info (12128): Elaborating entity "video_driver" for hierarchy "vgaImage:vga|video_driver:vgaOut" File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/vga/vgaImage.sv Line: 66
+Info (12128): Elaborating entity "altera_up_avalon_video_vga_timing" for hierarchy "vgaImage:vga|video_driver:vgaOut|altera_up_avalon_video_vga_timing:video" File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/vga/video_driver.sv Line: 144
+Warning (10230): Verilog HDL assignment warning at altera_up_avalon_video_vga_timing.v(218): truncated value with size 32 to match size of target (10) File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/vga/altera_up_avalon_video_vga_timing.v Line: 218
+Warning (10230): Verilog HDL assignment warning at altera_up_avalon_video_vga_timing.v(219): truncated value with size 32 to match size of target (10) File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/vga/altera_up_avalon_video_vga_timing.v Line: 219
+Info (12128): Elaborating entity "distance" for hierarchy "distance:calDistance" File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 43
+Info (12128): Elaborating entity "ImageTransfer" for hierarchy "ImageTransfer:comb_7" File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 52
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "GPIO_1[5]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+    Warning (13040): bidirectional pin "GPIO_1[7]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "GPIO_1[3]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+    Warning (13040): bidirectional pin "GPIO_1[1]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "GPIO_1[9]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "GPIO_1[31]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+    Warning (13040): bidirectional pin "GPIO_1[32]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+    Warning (13040): bidirectional pin "GPIO_1[33]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+    Warning (13040): bidirectional pin "GPIO_1[34]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+    Warning (13040): bidirectional pin "GPIO_1[35]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+    Warning (13040): bidirectional pin "GPIO_1[11]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+    Warning (13040): bidirectional pin "GPIO_1[13]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+    Warning (13040): bidirectional pin "GPIO_1[15]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+    Warning (13040): bidirectional pin "GPIO_1[16]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+    Warning (13040): bidirectional pin "GPIO_1[17]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+    Warning (13040): bidirectional pin "GPIO_1[18]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+    Warning (13040): bidirectional pin "GPIO_1[19]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+    Warning (13040): bidirectional pin "GPIO_1[20]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+    Warning (13040): bidirectional pin "GPIO_1[21]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+    Warning (13040): bidirectional pin "GPIO_1[22]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+    Warning (13040): bidirectional pin "GPIO_1[23]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+    Warning (13040): bidirectional pin "GPIO_1[24]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+    Warning (13040): bidirectional pin "GPIO_1[25]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+    Warning (13040): bidirectional pin "GPIO_1[26]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+    Warning (13040): bidirectional pin "GPIO_1[27]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+    Warning (13040): bidirectional pin "GPIO_1[28]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+    Warning (13040): bidirectional pin "GPIO_1[29]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+    Warning (13040): bidirectional pin "GPIO_1[30]" has no driver File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 15
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 5
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 5
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 5
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 5
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 5
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 5
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 5
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 5
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 5
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 5
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 13
+    Warning (13410): Pin "VGA_R[0]" is stuck at GND File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 7
+    Warning (13410): Pin "VGA_R[1]" is stuck at GND File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 7
+    Warning (13410): Pin "VGA_G[0]" is stuck at GND File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 8
+    Warning (13410): Pin "VGA_G[1]" is stuck at GND File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 8
+    Warning (13410): Pin "VGA_B[0]" is stuck at GND File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 9
+    Warning (13410): Pin "VGA_B[1]" is stuck at GND File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 9
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 21 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 4
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.sv Line: 4
+Info (21057): Implemented 20772 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 39 output pins
+    Info (21060): Implemented 36 bidirectional pins
+    Info (21061): Implemented 20688 logic cells
+    Info (21062): Implemented 4 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 61 warnings
+    Info: Peak virtual memory: 5004 megabytes
+    Info: Processing ended: Mon May 28 13:43:13 2018
+    Info: Elapsed time: 00:00:30
+    Info: Total CPU time (on all processors): 00:00:52
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/lucas/Documents/GitHub/EE371Lab4/Processor/ImageClassifier.map.smsg.
+
+

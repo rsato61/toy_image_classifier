@@ -1,0 +1,9 @@
+
+State Machine - |ImageClassifier|cpu:u0|cpu_cpu_nios:cpu_nios|cpu_cpu_nios_cpu:cpu|cpu_cpu_nios_cpu_nios2_oci:the_cpu_cpu_nios_cpu_nios2_oci|cpu_cpu_nios_cpu_debug_slave_wrapper:the_cpu_cpu_nios_cpu_debug_slave_wrapper|cpu_cpu_nios_cpu_debug_slave_tck:the_cpu_cpu_nios_cpu_debug_slave_tck|DRsize
+Name DRsize~5 DRsize~4 DRsize~3 
+DRsize.000 0 0 0 
+DRsize.001 0 0 1 
+DRsize.010 0 1 0 
+DRsize.011 0 1 1 
+DRsize.100 1 0 0 
+DRsize.101 1 0 1 

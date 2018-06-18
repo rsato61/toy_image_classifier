@@ -1,0 +1,111 @@
+# Reading C:/intelFPGA_lite/17.0/modelsim_ase/tcl/vsim/pref.tcl
+do run_vgaImage.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:19:03 on May 17,2018
+# vlog -reportprogress 300 ./vgaImage.sv 
+# -- Compiling module vgaImage
+# -- Compiling module vgaImage_testbench
+# 
+# Top level modules:
+# 	vgaImage_testbench
+# End time: 22:19:03 on May 17,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:19:03 on May 17,2018
+# vlog -reportprogress 300 ./video_driver.sv 
+# -- Compiling module video_driver
+# 
+# Top level modules:
+# 	video_driver
+# End time: 22:19:03 on May 17,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:19:03 on May 17,2018
+# vlog -reportprogress 300 ./altera_up_avalon_video_vga_timing.v 
+# -- Compiling module altera_up_avalon_video_vga_timing
+# 
+# Top level modules:
+# 	altera_up_avalon_video_vga_timing
+# End time: 22:19:03 on May 17,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs=""+acc"" -t 1ps -lib work vgaImage_testbench 
+# Start time: 22:19:03 on May 17,2018
+# Loading sv_std.std
+# Loading work.vgaImage_testbench
+# Loading work.vgaImage
+# Loading work.video_driver
+# Loading work.altera_up_avalon_video_vga_timing
+# ** Warning: (vsim-3015) ./video_driver.sv(119): [PCDPC] - Port size (10) does not match connection size (8) for port 'vga_red'. The port definition is at: ./altera_up_avalon_video_vga_timing.v(71).
+#    Time: 0 ps  Iteration: 0  Instance: /vgaImage_testbench/vga/vgaOut/video File: ./altera_up_avalon_video_vga_timing.v
+# ** Warning: (vsim-3015) ./video_driver.sv(119): [PCDPC] - Port size (10) does not match connection size (8) for port 'vga_green'. The port definition is at: ./altera_up_avalon_video_vga_timing.v(72).
+#    Time: 0 ps  Iteration: 0  Instance: /vgaImage_testbench/vga/vgaOut/video File: ./altera_up_avalon_video_vga_timing.v
+# ** Warning: (vsim-3015) ./video_driver.sv(119): [PCDPC] - Port size (10) does not match connection size (8) for port 'vga_blue'. The port definition is at: ./altera_up_avalon_video_vga_timing.v(73).
+#    Time: 0 ps  Iteration: 0  Instance: /vgaImage_testbench/vga/vgaOut/video File: ./altera_up_avalon_video_vga_timing.v
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: tardi  Hostname: DESKTOP-4ACBG1I  ProcessID: 11908
+#           Attempting to use alternate WLF file "./wlftvcengv".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftvcengv
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Note: $stop    : ./vgaImage.sv(110)
+#    Time: 90650 ps  Iteration: 1  Instance: /vgaImage_testbench
+# Break in Module vgaImage_testbench at ./vgaImage.sv line 110
+do run_vgaImage.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:21:06 on May 17,2018
+# vlog -reportprogress 300 ./vgaImage.sv 
+# -- Compiling module vgaImage
+# -- Compiling module vgaImage_testbench
+# 
+# Top level modules:
+# 	vgaImage_testbench
+# End time: 23:21:06 on May 17,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:21:06 on May 17,2018
+# vlog -reportprogress 300 ./video_driver.sv 
+# -- Compiling module video_driver
+# 
+# Top level modules:
+# 	video_driver
+# End time: 23:21:06 on May 17,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:21:07 on May 17,2018
+# vlog -reportprogress 300 ./altera_up_avalon_video_vga_timing.v 
+# -- Compiling module altera_up_avalon_video_vga_timing
+# 
+# Top level modules:
+# 	altera_up_avalon_video_vga_timing
+# End time: 23:21:07 on May 17,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs=""+acc"" -t 1ps -lib work vgaImage_testbench 
+# Start time: 23:21:07 on May 17,2018
+# Loading sv_std.std
+# Loading work.vgaImage_testbench
+# Loading work.vgaImage
+# Loading work.video_driver
+# Loading work.altera_up_avalon_video_vga_timing
+# ** Warning: (vsim-3015) ./video_driver.sv(119): [PCDPC] - Port size (10) does not match connection size (8) for port 'vga_red'. The port definition is at: ./altera_up_avalon_video_vga_timing.v(71).
+#    Time: 0 ps  Iteration: 0  Instance: /vgaImage_testbench/vga/vgaOut/video File: ./altera_up_avalon_video_vga_timing.v
+# ** Warning: (vsim-3015) ./video_driver.sv(119): [PCDPC] - Port size (10) does not match connection size (8) for port 'vga_green'. The port definition is at: ./altera_up_avalon_video_vga_timing.v(72).
+#    Time: 0 ps  Iteration: 0  Instance: /vgaImage_testbench/vga/vgaOut/video File: ./altera_up_avalon_video_vga_timing.v
+# ** Warning: (vsim-3015) ./video_driver.sv(119): [PCDPC] - Port size (10) does not match connection size (8) for port 'vga_blue'. The port definition is at: ./altera_up_avalon_video_vga_timing.v(73).
+#    Time: 0 ps  Iteration: 0  Instance: /vgaImage_testbench/vga/vgaOut/video File: ./altera_up_avalon_video_vga_timing.v
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: tardi  Hostname: DESKTOP-4ACBG1I  ProcessID: 11908
+#           Attempting to use alternate WLF file "./wlftmc64vd".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftmc64vd
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Note: $stop    : ./vgaImage.sv(111)
+#    Time: 90650 ps  Iteration: 1  Instance: /vgaImage_testbench
+# Break in Module vgaImage_testbench at ./vgaImage.sv line 111
+# End time: 23:21:18 on May 17,2018, Elapsed time: 0:00:11
+# Errors: 0, Warnings: 5
